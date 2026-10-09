@@ -9,7 +9,7 @@ root=Path(__file__).parent
 services=json.loads((root/'service-sections.json').read_text(encoding='utf-8'))
 sources=json.loads((root/'company-pages-source.json').read_text(encoding='utf-8'))
 slugs=['land-transit','freight-forwarding','custom-clearance','warehousing','packers-and-movers','other-expertise']
-asset='https://bigfootgroups.com/wp-content/uploads/2025/12/'
+asset='assets/images/2025/12/'
 
 def e(value): return escape(value,quote=True)
 def link(href,label,current=False,cls=''):
@@ -53,7 +53,7 @@ for b in blocks:
         country=b['text'].title();groups[country]=[]
     else:groups[country].append(b['text'])
 companies=''.join('<div class="company-group"><h3>'+e(country)+'</h3><ul class="clean-list">'+''.join('<li>'+e(name)+'</li>' for name in names)+'</ul></div>' for country,names in groups.items())
-about=f'<div class="split"><div class="prose"><p class="kicker">Our approach</p><h2>Business Philosophy</h2><p>{e(ps[0])}</p><div class="principles">{principles}</div><p>{e(ps[4])}</p></div><img class="editorial-image" src="{asset}18.jpg" alt="Bigfoot company operations"></div><div class="section-block"><div class="section-heading"><p class="kicker">Our network</p><h2>Group of Companies</h2></div><div class="company-grid">{companies}</div></div>'+cta()
+about=f'<div class="split"><div class="prose"><p class="kicker">Our approach</p><h2>Business Philosophy</h2><p>{e(ps[0])}</p><div class="principles">{principles}</div><p>{e(ps[4])}</p></div><img class="editorial-image" src="https://bigfootgroups.com/wp-content/uploads/2025/12/18.jpg" alt="Bigfoot company operations"></div><div class="section-block"><div class="section-heading"><p class="kicker">Our network</p><h2>Group of Companies</h2></div><div class="company-grid">{companies}</div></div>'+cta()
 page('about-us','About Us','People. Process. Professionalism.',about,'Continually striving for service excellence through our people, processes, and professionalism.')
 
 # Services overview and individual detail pages use the complete imported text.
@@ -85,7 +85,7 @@ page('services','Our Services','Air. Sea. Land.',rows+cta(),'Explore our integra
 client_files=['1.png','2-1.png','3-1.png','4.png','5-1.png','6.png','7.png','8.png','9.png','10.png','11-1.png','12.png','13.png']
 def logos(files,base,label):
     return ''.join(f'<figure><img src="{base+name}" alt="{label} {i+1}" loading="lazy"></figure>' for i,name in enumerate(files))
-clients='<div class="section-heading"><h2>Our Valuable Clients</h2></div><div class="logo-grid">'+logos(client_files,asset,'Client logo')+'</div><div class="section-block"><div class="section-heading"><p class="kicker">Industry affiliations</p><h2>Membership &amp; Certification</h2></div><div class="logo-grid certifications">'+logos([f'{i}.jpg' for i in range(1,9)],'https://bigfootgroups.com/wp-content/uploads/2026/03/','Membership or certification')+'</div></div>'+cta()
+clients='<div class="section-heading"><h2>Our Valuable Clients</h2></div><div class="logo-grid">'+logos(client_files,asset,'Client logo')+'</div><div class="section-block"><div class="section-heading"><p class="kicker">Industry affiliations</p><h2>Membership &amp; Certification</h2></div><div class="logo-grid certifications">'+logos([f'{i}.jpg' for i in range(1,9)],'assets/images/2026/03/','Membership or certification')+'</div></div>'+cta()
 page('clients','Our Clients','Trusted partnerships',clients)
 
 # Career: retain all original benefits and the recruitment contact.
@@ -96,7 +96,7 @@ for b in career_blocks:
     if b['kind']=='li':
         title,text=b['text'].split(':',1)
         benefits+=f'<div class="principle"><h3>{e(title)}</h3><p>{e(text.strip())}</p></div>'
-career=f'<div class="split"><div class="prose"><p class="kicker">Grow with us</p><h2>Join the Big-Foot Family</h2><p>{e(intro)}</p><h3>We’re Hiring</h3><p>Interested in joining our team? Please send your CV to <a href="mailto:recruitment@bigfoot.com.sg">recruitment@bigfoot.com.sg</a>.</p><div class="action-row"><a class="button" href="mailto:recruitment@bigfoot.com.sg?subject=Career%20enquiry">Email our recruitment team</a></div></div><img class="editorial-image" src="{asset}22.png" alt="Careers at Bigfoot"></div><div class="section-block prose"><p class="kicker">Your future at Bigfoot</p><h2>Why Work With Us?</h2>{benefits}</div>'
+career=f'<div class="split"><div class="prose"><p class="kicker">Grow with us</p><h2>Join the Big-Foot Family</h2><p>{e(intro)}</p><h3>We’re Hiring</h3><p>Interested in joining our team? Please send your CV to <a href="mailto:recruitment@bigfoot.com.sg">recruitment@bigfoot.com.sg</a>.</p><div class="action-row"><a class="button" href="mailto:recruitment@bigfoot.com.sg?subject=Career%20enquiry">Email our recruitment team</a></div></div><img class="editorial-image" src="https://bigfootgroups.com/wp-content/uploads/2025/12/22.png" alt="Careers at Bigfoot"></div><div class="section-block prose"><p class="kicker">Your future at Bigfoot</p><h2>Why Work With Us?</h2>{benefits}</div>'
 page('career','Career','Our people. Our greatest asset.',career)
 
 # Quote page follows the company's existing email-based enquiry flow.
