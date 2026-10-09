@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BIGFOOT – Supply Chain Enablers</title>
+<meta name="description" content="Bigfoot Groups delivers integrated supply chain solutions, freight forwarding, land transit, customs clearance and warehousing across international markets.">
+<!-- Content template adapted from https://bigfootgroups.com/ on 9 October 2026. Service sections preserve the paragraphs and lists from the linked service pages; Overview is an added grouping label where the source has no section heading. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;800&family=Barlow+Condensed:wght@700;800&display=swap">
+<style>
+:root{--navy:#153669;--red:#B92527;--bg:#fff;--ink:#14213a;--soft:#eef2f8;--grey:#a9b2c0;--on-navy:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1d38;--ink:#e8edf6;--soft:#13294d;--grey:#5d6c86}}
+:root[data-theme="dark"]{--bg:#0d1d38;--ink:#e8edf6;--soft:#13294d;--grey:#5d6c86}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Barlow,system-ui,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed",Barlow,sans-serif;font-weight:800;line-height:1.05;margin:0}
+h2{font-size:clamp(2rem,5vw,3rem);color:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:#fff}}
+:root[data-theme="dark"] h2{color:#fff}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:800 1.5rem "Barlow Condensed",sans-serif;letter-spacing:.02em;text-decoration:none;border-left:6px solid var(--red);padding-left:10px}
+nav{display:flex;gap:26px}
+nav a{text-decoration:none;font-weight:500;padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--red)}
+@media(max-width:700px){nav{gap:14px;font-size:.9rem}}
+
+/* about + video */
+#about{position:relative;padding:0;background:var(--navy);color:#fff;overflow:hidden;min-height:680px;display:flex;align-items:center;isolation:isolate}
+#about::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,19,39,.4),rgba(7,19,39,.74) 50%,rgba(7,19,39,.92));z-index:-1;pointer-events:none}
+#about .copy{position:relative;z-index:1;align-self:flex-start;padding:72px 0 88px;max-width:480px;margin-left:auto;margin-right:clamp(16px,1.5vw,24px);width:38%;text-shadow:0 2px 12px rgba(0,0,0,.3)}
+#about h1{font-size:clamp(2.3rem,4.6vw,3.7rem);max-width:11em}
+#about p{max-width:38em;margin:20px 0 0;color:#e5ebf5;font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.65}
+.video{position:absolute;inset:0;z-index:-2;background:#000 url('https://i.ytimg.com/vi/K-agmplo6Oo/maxresdefault.jpg') center/cover;pointer-events:none}
+.video iframe{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--video-width,100%);height:var(--video-height,100%);border:0}
+.video-toggle{position:absolute;left:24px;bottom:24px;z-index:2;width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);border-radius:50%;padding:0;background:rgba(21,54,105,.45);color:#fff;cursor:pointer}
+.video-toggle:hover{background:var(--navy);border-color:#fff}
+.video-toggle::before{content:"";width:10px;height:13px;border-left:3px solid #fff;border-right:3px solid #fff}
+.video-toggle[aria-pressed="true"]::before{width:0;height:0;border-left:11px solid #fff;border-right:0;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+@media(max-width:700px){#about{min-height:640px}#about .copy{width:100%;max-width:440px;margin-right:0;padding:40px 24px 100px}#about::after{background:rgba(7,19,39,.82)}.video-toggle{left:20px;bottom:20px}}
+
+/* why choose us */
+#why{background:var(--soft);padding:clamp(88px,9vw,128px) 0;scroll-margin-top:68px}
+#why h2{font-size:clamp(2.8rem,6vw,4.3rem)}
+.stage{position:relative;margin-top:64px}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:4px solid var(--grey);padding-top:156px;transition:border-color .3s}
+.col{padding:24px 18px 36px;color:var(--grey);cursor:pointer;transition:color .35s;outline-offset:-3px}
+.col h3{font-size:clamp(1.8rem,2.8vw,2.2rem);line-height:1.12}
+.col p{margin:14px 0 0;font-size:clamp(1.1rem,1.6vw,1.25rem);line-height:1.65}
+.col.on{color:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .col.on{color:#fff}}
+:root[data-theme="dark"] .col.on{color:#fff}
+.rail{position:absolute;top:0;left:0;width:25%;height:144px;transition:transform .6s cubic-bezier(.6,0,.2,1);pointer-events:none;padding:0 18px}
+.rail svg{position:absolute;left:18px;bottom:6px;height:124px;width:auto;max-width:calc(100% - 36px);fill:var(--red);opacity:0;transform:translateX(-16px) scale(.9);transition:opacity .4s,transform .5s}
+.rail svg.show{opacity:1;transform:none}
+.cols::before{content:"";position:absolute;top:140px;left:0;height:4px;width:var(--fill,25%);background:var(--red);transition:width .6s cubic-bezier(.6,0,.2,1)}
+@media(max-width:720px){.cols{grid-template-columns:1fr 1fr}.rail{width:50%}.col{padding:24px 12px 32px}}
+
+/* services */
+#services{background:var(--navy);color:#fff;overflow:hidden;padding-bottom:48px;scroll-margin-top:68px}
+#services>.wrap{max-width:none;padding:0}
+#services h2{padding:0 max(24px,calc((100vw - 1100px)/2 + 24px))}
+#services h2{color:#fff}
+.svc-grid{margin-top:24px}
+.orbit{position:relative;width:100%;height:calc(86vw + 120px)}
+.dot,.big{position:absolute;border-radius:50%}
+.dot{width:clamp(130px,15vw,210px);aspect-ratio:1;transform:translate(-50%,-50%);border:2px solid rgba(255,255,255,.45);background-color:#000;background-size:cover;background-position:center;color:#fff;font:600 clamp(15px,1.6vw,23px)/1.2 Barlow,sans-serif;padding:18px;cursor:pointer;opacity:.38;filter:saturate(.45);text-shadow:0 2px 8px #000;transition:left .45s ease,top .45s ease,transform .45s ease,opacity .4s,filter .4s,border-color .4s;z-index:2}
+.dot:hover,.dot:focus-visible{opacity:.8;filter:saturate(1)}
+.dot.on{opacity:1;filter:saturate(1);border-color:#fff;transform:translate(-50%,-50%) scale(1.45);box-shadow:0 0 0 5px rgba(185,37,39,.55),0 12px 40px rgba(0,0,0,.3);z-index:5}
+/* Move the planet left; its image fills the entire circle and right edge. */
+.big{right:-63vw;top:50%;width:130vw;aspect-ratio:1;transform:translateY(-50%);background:#000;color:#fff;overflow:hidden;isolation:isolate}
+.planet-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+/* Uniform black overlay at 15% transparency across the whole image. */
+.big::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85);z-index:-1;pointer-events:none}
+.planet-copy{position:absolute;left:10%;top:22%;width:35%;height:56%;display:flex;flex-direction:column;padding:0 8px 16px;text-align:left;text-shadow:0 1px 5px rgba(0,0,0,.35)}
+.big h3{flex:none;font-size:clamp(48px,5.8vw,88px);color:#fff;text-align:center;margin-bottom:28px;line-height:1}
+.big h3::after{content:"";display:block;width:72px;height:5px;background:var(--red);margin:20px auto 0}
+.big p{font-size:clamp(16px,1.3vw,20px);line-height:1.7;margin:20px 0 0;color:#d5def0}
+.service-accordion{min-height:0;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--red) transparent;padding-right:10px}
+.service-accordion details{border:0;margin-bottom:8px;background:transparent}
+.service-accordion summary{list-style:none;display:flex;align-items:center;justify-content:flex-start;gap:14px;padding:20px 0;border:0;background:transparent;font-size:clamp(18px,1.6vw,24px);font-weight:600;line-height:1.3;cursor:pointer;color:#fff}
+.service-accordion summary::-webkit-details-marker{display:none}
+.service-accordion summary::after{content:"";flex:none;width:10px;height:10px;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(45deg);transition:transform .2s;margin-right:5px}
+.service-accordion details[open] summary::after{transform:rotate(225deg)}
+.service-accordion details[open] summary{background:transparent}
+.service-accordion summary:hover{background:transparent;color:#d5def0}
+.service-section-body{padding:16px 0 24px;background:transparent}
+.service-section-body p:first-child{margin-top:2px}
+.service-section-body ul{padding-left:24px;margin:16px 0 0;font-size:clamp(16px,1.3vw,20px);line-height:1.6}
+.service-section-body li{margin:7px 0;color:#d5def0}
+.service-section-body li::marker{color:var(--red)}
+.planet-copy.swap{animation:planet-in .35s ease}
+@keyframes planet-in{from{opacity:0}to{opacity:1}}
+@media(max-width:760px){
+  #services{padding-bottom:56px}
+  .orbit{height:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:28px 18px;padding:24px 20px 0}
+  .big{position:relative;right:auto;top:auto;flex:none;width:calc(100% + 80px);transform:none;margin:0 -40px 20px;order:0}
+  .planet-image{width:100%;height:100%;object-position:center}
+  .big::after{background:rgba(0,0,0,.85)}
+  .planet-copy{left:13%;width:74%;top:18%;bottom:auto;height:66%;padding:0 6px 12px}
+  .big h3{font-size:clamp(38px,9vw,56px);margin-bottom:18px}
+  .big h3::after{margin-top:12px;height:4px}
+  .big p{font-size:15px;line-height:1.5;margin-top:12px}
+  .service-accordion summary{font-size:17px;padding:14px 0}
+  .service-accordion{padding-right:4px}
+  .service-section-body{padding:12px 0 18px}
+  .service-section-body ul{font-size:15px}
+  .dot{position:relative;left:auto!important;top:auto!important;transform:none;width:calc((100% - 18px)/2);max-width:170px;order:1;font-size:16px;padding:14px}
+  .dot.on{transform:scale(1.35)}
+}
+@media(prefers-reduced-motion:reduce){.dot,.service-accordion summary::after{transition:none}.planet-copy.swap{animation:none}}
+@keyframes in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+
+/* clients */
+#clients h2{margin-bottom:36px}
+.marquee{overflow:hidden;pointer-events:none;user-select:none;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:20px;width:max-content;animation:slide 32s linear infinite}
+.chip{flex:none;width:170px;height:78px;border:2px solid var(--grey);border-radius:10px;display:grid;place-items:center;font-weight:600;color:var(--grey)}
+.chip.cert{border-color:var(--red);color:var(--red)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+footer{background:var(--red);color:#fff;padding:64px 0}
+footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+footer h2{color:#fff}
+footer p{margin:6px 0}
+
+@media (prefers-reduced-motion:reduce){.track{animation:none}.video,.rail,.rail svg,.dot,.cols::before{transition:none}}
+/* Small content-fit adjustments for the original site's longer copy. */
+#about .eyebrow{margin:0 0 18px;font-weight:600;}
+.chip{background:#fff;padding:10px;}
+.chip img{max-width:100%;max-height:100%;object-fit:contain;}
+.cert-title{margin-top:52px;}
+</style>
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="Index.html">BIGFOOT<small>Supply Chain Enablers</small></a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation"><span aria-hidden="true"></span></button><nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a href="Index.html" aria-current="page">Home</a><a href="about-us.html">About Us</a><details class="nav-services"><summary>Services</summary><div class="service-menu"><a href="services.html">All services</a><a href="land-transit.html">Land Transit</a><a href="freight-forwarding.html">Freight Forwarding</a><a href="custom-clearance.html">Custom Clearance</a><a href="warehousing.html">Warehousing</a><a href="packers-and-movers.html">Packers and Movers</a><a href="other-expertise.html">Other Expertise</a></div></details><a href="clients.html">Clients</a><a href="career.html">Career</a><a href="Index.html#contact">Contact Us</a><a href="request-a-quote.html" class="quote-link">Request a Quote</a></nav></div></header>
+
+<main>
+<section id="about" aria-label="About us">
+  <div class="copy">
+    <p class="eyebrow">30 Years of Utmost Service Excellence</p>
+    <h1>Moving Global Trade with Confidence</h1>
+    <p>Bigfoot Groups delivers reliable, integrated logistics solutions through a global network spanning air, sea, and land transportation. Our services include freight forwarding, warehousing, customs clearance, and end-to-end supply chain management. With advanced technology, real-time shipment tracking, and solutions tailored to each business, we help customers improve efficiency, manage costs, reduce risks, and expand into international markets with confidence.</p>
+  </div>
+  <a class="button hero-about" href="about-us.html">About Us</a>
+  <button class="video-toggle" type="button" aria-label="Pause background video" title="Pause background video" aria-pressed="false" aria-controls="company-video-player"></button>
+  <div class="video" id="company-video" aria-hidden="true">
+    <iframe id="company-video-player" title="Bigfoot Groups background video" tabindex="-1" data-src="https://www.youtube.com/embed/K-agmplo6Oo?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=K-agmplo6Oo&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;disablekb=1" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+</section>
+
+<section id="why"><div class="wrap">
+  <h2>Why choose us</h2>
+  <div class="stage" id="stage">
+    <div class="rail" id="rail">
+      <svg viewBox="0 0 160 100" class="show" aria-hidden="true"><path d="M10 92V40L80 10l70 30v52h-14V48H24v44z"/><rect x="42" y="56" width="76" height="36" rx="2"/></svg>
+      <svg viewBox="0 0 220 100" aria-hidden="true"><path d="M4 18h128v58H4zM138 36h42l30 28v12h-72z"/><circle cx="36" cy="84" r="12"/><circle cx="60" cy="84" r="12"/><circle cx="162" cy="84" r="12"/><circle cx="186" cy="84" r="12"/></svg>
+      <svg viewBox="0 0 220 100" aria-hidden="true"><path d="M30 18h24v18H30zM58 18h24v18H58zM86 18h24v18H86zM44 40h24v18H44zM72 40h24v18H72zM100 40h24v18h-24z"/><path d="M4 64h200l-24 26H30z"/></svg>
+      <svg viewBox="0 0 220 100" aria-hidden="true"><path d="M206 50c0-6-6-10-14-10h-44L100 4H82l22 36H62L46 22H32l12 28-12 28h14l16-18h42L82 96h18l48-36h44c8 0 14-4 14-10z"/></svg>
+    </div>
+    <div class="cols" id="cols">
+      <div class="col" tabindex="0"><h3>Premium services</h3><p>Always providing optimum quality services as per client's requirements and needs.</p></div>
+      <div class="col" tabindex="0"><h3>Timely deliveries</h3><p>Always delivering products on or before time schedule as per client's requirements.</p></div>
+      <div class="col" tabindex="0"><h3>100% Commitment</h3><p>Always giving 100% commitment towards order fulfillment and customer satisfaction.</p></div>
+      <div class="col" tabindex="0"><h3>Cost-effective pricing</h3><p>We offer competitive and transparent pricing without compromising on service quality.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <h2>Our services</h2>
+  <div class="svc-grid"><div class="orbit" id="orbit">
+    <div class="big" id="big" role="region" aria-label="Selected service"></div>
+  </div></div>
+</div></section>
+
+<section id="clients"><div class="wrap">
+  <h2>Our Valuable Clients</h2>
+  <div class="marquee" role="img" aria-label="Client logos from the existing Bigfoot website"><div class="track" id="track" aria-hidden="true"></div></div>
+  <h2 class="cert-title">Membership &amp; Certification</h2>
+  <div class="marquee" role="img" aria-label="Membership and certification logos from the existing Bigfoot website"><div class="track" id="cert-track" aria-hidden="true"></div></div>
+</div></section>
+
+</main>
+<footer class="site-footer" id="contact"><div class="wrap"><div class="footer-grid"><div><a class="logo" href="Index.html">BIGFOOT<small>Supply Chain Enablers</small></a><p>Integrated logistics solutions across air, sea, and land.</p><p>30 Years of Utmost Service Excellence</p></div><div><h3>Explore</h3><div class="footer-links"><a href="about-us.html">About Us</a><a href="services.html">Services</a><a href="clients.html">Clients</a><a href="career.html">Career</a><a href="request-a-quote.html">Request a Quote</a><a href="Index.html#contact">Contact Us</a><a href="Index.html#why">Why choose us</a></div></div><div><h3>Contact us</h3><p>8 Joo Koon Road<br>Singapore – 628972</p><p><a href="tel:+6598995999">+65 9899 5999</a></p><p><a href="mailto:enquiries@bigfoot.com.sg">enquiries@bigfoot.com.sg</a></p><p><a href="mailto:recruitment@bigfoot.com.sg">recruitment@bigfoot.com.sg</a></p></div></div><div class="footer-bottom"><span>© BIGFOOT Groups. All rights reserved.</span><span>Supply Chain Enablers</span></div></div></footer>
+
+<script>
+// Muted, looping video fills the hero behind the copy. Respect reduced motion.
+(function(){
+  var hero=document.getElementById('about'),panel=document.getElementById('company-video'),
+      player=document.getElementById('company-video-player'),toggle=hero.querySelector('.video-toggle'),
+      motion=matchMedia('(prefers-reduced-motion:reduce)'),paused=motion.matches;
+  function size(){
+    var width=Math.max(hero.clientWidth,hero.clientHeight*16/9);
+    panel.style.setProperty('--video-width',width+'px');
+    panel.style.setProperty('--video-height',width*9/16+'px');
+  }
+  function update(){
+    toggle.setAttribute('aria-pressed',String(paused));
+    var label=paused?'Resume background video':'Pause background video';
+    toggle.setAttribute('aria-label',label);
+    toggle.setAttribute('title',label);
+    if(paused){player.removeAttribute('src');player.hidden=true;}
+    else{player.hidden=false;player.src=player.getAttribute('data-src');}
+  }
+  toggle.addEventListener('click',function(){paused=!paused;update();});
+  motion.addEventListener('change',function(event){paused=event.matches;update();});
+  new ResizeObserver(size).observe(hero);
+  size();update();
+})();
+
+// Why choose us: hovering a column lights every column up to it; the icon moves and changes mode
+(function(){
+  var cols=[].slice.call(document.querySelectorAll('.col')),icons=[].slice.call(document.querySelectorAll('#rail svg')),
+  rail=document.getElementById('rail'),stage=document.getElementById('cols');
+  function set(i){
+    cols.forEach(function(c,k){c.classList.toggle('on',k<=i)});
+    icons.forEach(function(s,k){s.classList.toggle('show',k===i)});
+    var small=matchMedia('(max-width:720px)').matches,n=small?2:4;
+    rail.style.transform='translateX('+((i%n)*100)+'%)';
+    stage.style.setProperty('--fill',(((i%n)+1)*100/n)+'%');
+  }
+  cols.forEach(function(c,i){['mouseenter','focus','click'].forEach(function(e){c.addEventListener(e,function(){set(i)})})});
+  set(0);cols.forEach(function(c){c.classList.remove('on')});
+})();
+
+// Services: image-backed moons around a planet, with the first service selected.
+(function(){
+  var S=[["Land Transit", [{"title": "Container Trucking", "blocks": [{"kind": "p", "text": "We offer Quality Container Trucking services as per the comfortability of our customers. We acquaint ourselves as one of the most trusted Container trucking service providers in Singapore. Our pricing is among the best in the industry. We offer safe, dry, and secure storage and transportation of containers from reaching to a wide classification of customers. We offer a full line of dry containers, high cube container, open top, flat racks, tank, and refrigerated containers."}, {"kind": "p", "text": "Containers of all types – 10′, 20′, 24′, 40′, closed and open top are handled via our trucking service. We provide on time Containerized door to door services. We have our own fleet of containers and containerized vehicles. Our containers pass through the most stringent test before loading – like humidity check, leakage check, and floor check only after these tests a container in loaded and set for the road."}]}, {"title": "Cold Chain Movement", "blocks": [{"kind": "p", "text": "Our specialized services in Cold cargo movement include items like Food, Beverages, Fruits and Vegetables and other perishable items. Our Containers are equipped to handle perishables in refrigerated state by controlling the temperature to as low as -4’c -0’c. We have Specialty Containers 20 ft/40 ft/ 40ft High Cube Refrigerated Containers. These are containers that can be used for the movement of refrigerated Cargo."}, {"kind": "p", "text": "Specially designed insulation ensures minimum heat leakage and makes these containers suitable for extreme tropical and hot climatic conditions. Refrigerated containers are suited for domestic trucking application."}]}, {"title": "Dry Cargo Movement", "blocks": [{"kind": "p", "text": "We provide excellent services for dry cargo movement. The containers which we use for this purpose are built as per international standards, and are used for the movement of conventional dry cargo. These are used in domestic movement. Our container services are available for 20/40 ft size cargo. These containers offer the added advantage of extra volumetric capacity due to their additional height, and are useful in the movement of light and heavy cargo."}, {"kind": "p", "text": "Our Dry cargo container comes in a wide range of sizes standard sizes 20ft – 6m to 40ft – 12m full size containers. They are made to be weatherproof and absolutely secure for your cargo. Our dry cargo containers can be used for Bulk cargo like Coal, Grains, Steel, Fertilizers, and others."}]}], "2.jpg", "https://bigfootgroups.com/land-transit/"], ["Freight Forwarding", [{"title": "Air Import", "blocks": [{"kind": "p", "text": "With a comprehensive range of air import services, we offer consolidation/Deconsolidation and back to back services as and when required. We have built an extensive network of agents that makes us able to provide secure, efficient and timely delivery of Import. The vast number of Import range covered by us and the large volumes handled by us enable us to consolidate direct containers from specific locations which in turn enables us to control transit time and cost. We provide efficient import service to our importers. The alacrity with which we work shows our ability to handle fragile and sensitive shipments."}, {"kind": "p", "text": "We have a committed network of integrated air and ground services that enables us to handle from pick up to prompt delivery. The services we offer in Air Import include"}, {"kind": "li", "text": "Documentation"}, {"kind": "li", "text": "Customs and Airport Customs declarations"}, {"kind": "li", "text": "Local Forwarding and Transportation"}, {"kind": "li", "text": "Door-to-Door Delivery"}, {"kind": "li", "text": "Sea-Air/Air-Sea Transshipment"}, {"kind": "li", "text": "Break-bulk Air Import"}, {"kind": "li", "text": "Effective Space Solutions"}, {"kind": "li", "text": "Competitive Freight Rates"}, {"kind": "li", "text": "Committed Transit Times"}, {"kind": "li", "text": "Excellent Rapport with major Airlines"}, {"kind": "li", "text": "Consolidation Services"}, {"kind": "li", "text": "Specialized services for High value / Fragile / Over dimensional / Hazardous Goods"}]}, {"title": "Air Export", "blocks": [{"kind": "p", "text": "Our Air export services are from Singapore and Malaysia to anywhere in the world. We Offer worldwide Air Export services in association with our extensive international network of Agents and Associates. We tailor our services to Customer’s needs from Air Export services precisely for each and every shipment. Whether it is direct flights with reserved cargo capacity and constant supervision, regularly consolidated air -cargo departures, or special projects. We can meet any kind of requirement regarding Air Export. Our services in Air Export include"}, {"kind": "li", "text": "Domestic Pickup"}, {"kind": "li", "text": "Multimodal Transportation during Trans-Shipment"}, {"kind": "li", "text": "Consolidation and Deconsolidation Services"}, {"kind": "li", "text": "Door-to-Door Delivery Services"}, {"kind": "li", "text": "Documentation"}, {"kind": "li", "text": "Customs Declaration"}, {"kind": "li", "text": "Competitive Freight Rates"}, {"kind": "li", "text": "Committed Transit Times"}, {"kind": "li", "text": "Excellent Rapport with major Airlines"}]}, {"title": "Sea Import", "blocks": [{"kind": "p", "text": "We Offer complete Sea import solutions to our valued customers in Singapore and Malaysia. Our clients can depend on us for timely and safe delivery of Cargo. We are reckoned for our commitment, fair business practices, and rich experience. Our well-connected network and potential to deal with shipping requirements have made us a reckoned service provider of sea Import services and have won many a clients.As a Customer centric organization, our reputation is primarily based on the quality of services we offer. All our services are rendered by trained professionals who are specifically trained in their domain. Our professionals take special measures to ensure proper execution of the Import services rendered, safety of the Cargo and convenience of our Customers. Our Services in Sea Import include"}, {"kind": "li", "text": "Door Pickup from Origin"}, {"kind": "li", "text": "Multimodal Transportation to the Port of Discharge"}, {"kind": "li", "text": "Sea Transportation to Destination"}, {"kind": "li", "text": "Door Delivery to the Customer"}, {"kind": "li", "text": "LCL and FCL Multi country Consolidation services"}, {"kind": "li", "text": "Handling and clearing Sea Import Documents"}, {"kind": "li", "text": "Customs declaration of Sea Import"}, {"kind": "li", "text": "Break-Bulk Services"}]}, {"title": "Sea Export", "blocks": [{"kind": "p", "text": "We are well equipped and expertise in handling Sea Export from Singapore and Malaysia to anywhere in the world. Experience is what sets us apart from other similar service providers. We have an entire family of services to suit a variety of our customer needs. With fast transit periods, optimum prices, prompt arrival and departure we give you with a reliable sea Export service that provides solutions to almost all your needs. We have clearly defined processes in place which gives you reliability as well as saves costs. Our services in Sea Export include"}, {"kind": "li", "text": "LCL/FCL services to destinations all over the world"}, {"kind": "li", "text": "Consolidation/De services at major ports"}, {"kind": "li", "text": "Port-to-Port and Door-to-Door Services"}, {"kind": "li", "text": "Efficient and rapid customs administration for all products"}, {"kind": "li", "text": "Reserved space on major ocean carriers through preferential Space Allocation at very competitive rates"}, {"kind": "li", "text": "Reliable and Hassle Free Customs declarations"}]}], "5.png", "https://bigfootgroups.com/freight-forwarding/"], ["Custom Clearance", [{"title": "Customs Declaration", "blocks": [{"kind": "p", "text": "We offer wide variety of Customs Declaration services in order to help you for import and export custom clearance. For import consignments we help you with documentation processes such as original invoice, packing list, bill of landing/airway, bill endorsed by the importer or bank, insurance certificate, purchase order or letter of credit, import license and catalogue or literature if the goods are chemical for custom clearance services. Whereas for export clearance, export license or permit and sale contracts are required along with Invoice, Packing list and shipping instruction and other related documents."}, {"kind": "p", "text": "Once we are through with these documentation procedures, we help you in customs declarations easing your burden of customs declarations quickly and efficiently. Our services in this area include"}, {"kind": "li", "text": "Guidance and consultancy on pre and post shipment services"}, {"kind": "li", "text": "Liasoning and follow up with various Govt Organisations"}, {"kind": "li", "text": "Documentation procedures i.e. preparation and handling of documents"}, {"kind": "li", "text": "All post shipment formalities and endorsements"}]}, {"title": "Insurance", "blocks": [{"kind": "p", "text": "Our Cargo Insurance services are rated amongst the best in the industry for we take care of your cargo’s Insurance right from the port of discharge to the port of destination, covering aspects of natural calamities, Fire, theft, pilferage etc. In case of short landing or damages / pilferages detected after landing inside port area, we arrange survey of damages occurred and assist our customers to file a claim with the insurance company, besides claiming duty remission, wherever applicable."}, {"kind": "p", "text": "Similarly, if any damages or pilferages take place after customs clearance, on route in transit, from port to final destination, we will arrange for a survey at the unloading point and seek compensation from the insurance company for the loss suffered."}, {"kind": "p", "text": "All the survey and the claim formalities will be completed simultaneously so that either the declaration and clearance of cargo at port or consumption of the cargo after delivery does not suffer any abnormal delay."}]}], "6.jpg", "https://bigfootgroups.com/custom-clearance/"], ["Warehousing", [{"title": "Overview", "blocks": [{"kind": "p", "text": "Improved service, reduced costs and enhanced performance are the goals of our warehousing and distribution operations. Using these areas for competitive advantage we focus on proper planning and continual improvement."}, {"kind": "p", "text": "Our state of the art technology warehouses provide safe storage of cargo during transit. Besides, we also undertake distribution services to local depots and sales points from our warehouses. Our warehouses have the capacity to handle a large volume of cargo. Be it heavy machinery, small screws or perishables like fruits and vegetables, we can handle all. We provide local expertise in emerging markets, lower inventory and shipping costs, as well as improved technology and customer service. We care about the quality of your products, which is why we are ready to serve you the best while you put the most thought into your investments and expanding your business."}]}, {"title": "Warehouse location and Layout", "blocks": [{"kind": "p", "text": "Our warehouses are strategically located near industrial area in the vicinity of Air or Sea port. This makes the trans-shipment of cargo between the warehouse, Production units and c argo simpler and faster. Further, the layout of our warehouses is designed in a way to accommodate free and easy flow of trucks and containers to and from the warehouse premises without any hassles."}]}, {"title": "Storage Space and tracing", "blocks": [{"kind": "p", "text": "Our warehouses accommodate any kind of cargo from heavy machinery to smallest of the machinery spare parts like screws and nuts. Every cargo has an allotted space in our warehouse and tracking is made simple by means of labeling, Bar Coding and computerized warehouse management system."}]}, {"title": "Cold Storage", "blocks": [{"kind": "p", "text": "Our cold storage facility keeps your perishable cargo fresh and consumable for a long time. Temperature is controlled to the required level and quality of the items is taken absolute care of. Our Cold room warehousing includes features as screw compressors, reciprocating compressors and liquid chillers for the various applications for food processing industry, meat processing plant, poultry processing plant, fish food, and Sea food, Our cold storage warehouse are widely used for products as apples, apricots, banana, beans, butter, cabbage, cauliflower, oranges and many other related food products."}, {"kind": "p", "text": "Our services in this are include"}, {"kind": "li", "text": "Allocation and Management of space in Cold Storage"}, {"kind": "li", "text": "Effective and efficient temperature control system for longevity of perishable materials"}]}, {"title": "Dry Cargo Management", "blocks": [{"kind": "p", "text": "With over large space of owned / leased godown spaces we offer our customers the opportunity of minimizing their investment and provide a modern storage system and material handling equipment. This provides advantages such as decreased order processing time, reduced shipping errors and better inventory tracking. Our Dry Cargo management includes efficient in-warehouse management, inventory management,. An advanced Dry Cargo management system can manage the information of in and out cargo and logistics activities effectively. Customers can check the status of their inventories online in a timely fashion."}, {"kind": "p", "text": "Our services in the area include"}, {"kind": "li", "text": "Efficient storage in racks and containers"}, {"kind": "li", "text": "BIN Card system"}, {"kind": "li", "text": "Appropriate labeling and Bar Coding"}, {"kind": "li", "text": "Ensuring 100% availability"}, {"kind": "li", "text": "Using RFID analysis to put high moving cargo in the first place"}]}], "7.jpg", "https://bigfootgroups.com/warehousing/"], ["Packers and Movers", [{"title": "Overview", "blocks": [{"kind": "p", "text": "Big-Foot Packers and Movers provide packing and Moving Services on truly personalized basis, we provide tailor made solutions for according to your every need. Our packing and moving services contains safely packing of all your goods in related packing materials in which they can be relocated easily. Each and every item is packed according to its priority based upon its delicacy and importance. We are here using world class packing materials to protect goods from natural and unnatural disasters. The material we use in packaging of goods not only save your belongings from outer environment even it help us to make relocation easier and damage free."}, {"kind": "p", "text": "Every items are packed and marked separately so that those can be easily unpacked and identified by the team who are going to be re-settle them at destination point."}, {"kind": "p", "text": "While in the moving process we take care about the fuss and furriers of movement of consignment of your goods and items to be relocated to places. In this process we take care that goods are to be transferred to other location are loaded in carriers in which they can be safely moved or whether they are according to the need. You’re going to get free estimate by getting in contact with us for the below Movers services."}, {"kind": "li", "text": "Corporate Move"}, {"kind": "li", "text": "Office Move"}, {"kind": "li", "text": "Residential Move"}, {"kind": "li", "text": "Hospital Equipment Move"}, {"kind": "li", "text": "Furniture Move"}, {"kind": "li", "text": "Musical Instruments Move"}, {"kind": "li", "text": "International Move"}, {"kind": "li", "text": "Packing"}]}], "8a.jpg", "https://bigfootgroups.com/packers-and-movers/"], ["Other Expertise", [{"title": "Live Stock Handling", "blocks": [{"kind": "p", "text": "We handle all kinds of Livestock including Poultry, Cattle, and others. Our Cargo handling team has relevant experience and expertise in handling of Livestock. Livestock is the KORBAN IBADAT Project awarded to us in the year 2005 and is an ongoing project. This is a hallmark of our perfection in executing a project. The planning skills of our Operations staff mean that your Livestock will be handled with extreme care and will reach the destination safely & on time. Handling of specialized Livestock requires particular skills – We plan each cargo carefully to ensure a balanced handling; ship carefully to allow a safe and comfortable trip for your livestock Our services in this area include"}]}, {"title": "Port Handling", "blocks": [{"kind": "p", "text": "Our port handling services include discharge and loading of bulk, container, project cargo & dangerous goods. Care is taken during entire operation of loading /unloading at ports to ensure safe handling and delivery of all kinds of cargo including dry/ liquid cargo, dangerous goods/over dimensional cargo and all other types of cargo."}, {"kind": "p", "text": "We offer services at other berths of the port as handling agents. Container stuffing / de-stuffing facility is also being provided by our Port Management Service and is outside the dock premises. We take care of the entire operation of loading/unloading at ports and ensure a swift handling and delivery of all kinds of cargo. Our services in this area include"}, {"kind": "li", "text": "Vessels Coordination with the Port Authorities, Immigrations & Customs"}, {"kind": "li", "text": "Handling all the Formalities & Paperwork’s for in & outbound Vessel"}, {"kind": "li", "text": "Customs Handling and Clearance"}, {"kind": "li", "text": "Yard & Warehouse Arrangement"}]}, {"title": "Logistics Consultancy", "blocks": [{"kind": "p", "text": "Our logistics consultancy program relies upon the quality of the initial diagnostic assignment to identify key development opportunities. To make a Logistics Diagnostic Project successful, we make the evaluation objectively, preferably with a vision for your tomorrow’s needs and with demonstrable specialist expertise and broad experience of the state-of-the-art across a variety of industries."}, {"kind": "p", "text": "Our Consultancy services include the configuration of logistics networks and the optimization of modes, which help you in streamlining your supply chain performance, and we have the level of technical expertise required to find an optimum solution which is very significant. Our services in this area include consultancy for"}, {"kind": "li", "text": "Inbound Supply Chain Network Optimization"}, {"kind": "li", "text": "Outbound Supply Chain Network Optimization"}, {"kind": "li", "text": "Warehouse Rationalization and Inventory Reduction"}, {"kind": "li", "text": "Transport Mode Optimization"}, {"kind": "li", "text": "Transport Vehicle Optimization"}, {"kind": "li", "text": "3PL / 4PL Network Outsourcing"}, {"kind": "li", "text": "Total Logistics & Supply chain Management Etc."}]}, {"title": "Quality Inspection", "blocks": [{"kind": "p", "text": "We offer quality inspection services of Cargo on behalf of our customers at various stages of Freight Forwarding via SGS. Total Quality Control is the key to our inspection standards. The major characteristics of our inspection are"}, {"kind": "li", "text": "Reliability"}, {"kind": "li", "text": "Maintainability"}, {"kind": "li", "text": "Adoption of SGS Standards"}, {"kind": "li", "text": "Standard parameters for Cargo Inspection"}, {"kind": "li", "text": "Inspection of Cargo at various stages reducing risk of Loss/Damages to the customer"}, {"kind": "p", "text": "Inspection occurs during critical transportation, custody transfer and storage operations. Our independent inspection, analysis and testing services help protect the quantity and quality of commodities for our Customers."}, {"kind": "p", "text": "Our Quality Assurance provides the facility an Exporter or an Importer can be rest assured that Machinery, component, material meets pre-stated quality standards and will perform satisfactory during service. Our Quality Control Inspection is concerned with actual measurement or testing or supervision of Exporters final product control, either by inspection of each unit or by sample testing."}]}], "9.jpg", "https://bigfootgroups.com/other-expertise/"]];
+  var orbit=document.getElementById('orbit'),big=document.getElementById('big'),dots=[];
+  var imageBase='https://bigfootgroups.com/wp-content/uploads/2025/12/',selectedIndex=0;
+  function select(i){
+    if(i===selectedIndex&&big.querySelector('.planet-copy'))return;
+    selectedIndex=i;
+    dots.forEach(function(d,k){d.classList.toggle('on',k===i);d.setAttribute('aria-pressed',k===i?'true':'false')});
+    var image=document.createElement('img'),copy=document.createElement('div'),title=document.createElement('h3'),accordion=document.createElement('div');
+    image.className='planet-image';image.src=imageBase+S[i][2];image.alt='';
+    copy.className='planet-copy swap';title.textContent=S[i][0];title.id='selected-service-title';
+    big.setAttribute('aria-labelledby',title.id);accordion.className='service-accordion';
+    S[i][1].forEach(function(section){
+      var item=document.createElement('details'),heading=document.createElement('summary'),body=document.createElement('div'),list=null;
+      item.setAttribute('name','service-sections-'+i);heading.textContent=section.title;body.className='service-section-body';
+      section.blocks.forEach(function(block){
+        if(block.kind==='li'){
+          if(!list){list=document.createElement('ul');body.appendChild(list)}
+          var bullet=document.createElement('li');bullet.textContent=block.text;list.appendChild(bullet);
+        }else{
+          list=null;var paragraph=document.createElement('p');paragraph.textContent=block.text;body.appendChild(paragraph);
+        }
+      });
+      item.appendChild(heading);item.appendChild(body);
+      var hoverTimer;
+      heading.addEventListener('pointerenter',function(event){
+        if(event.pointerType==='mouse')hoverTimer=setTimeout(function(){item.open=true},160);
+      });
+      heading.addEventListener('pointerleave',function(){clearTimeout(hoverTimer)});
+      item.addEventListener('toggle',function(){
+        if(item.open)accordion.querySelectorAll('details').forEach(function(other){if(other!==item)other.open=false});
+      });
+      accordion.appendChild(item);
+    });
+    var more=document.createElement('a');more.className='planet-more';more.textContent='View full service ↗';more.href=S[i][3].split('/').filter(Boolean).pop()+'.html';
+    copy.appendChild(title);copy.appendChild(accordion);copy.appendChild(more);big.replaceChildren(image,copy);
+    positionMoons();
+  }
+  S.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.type='button';b.className='dot';b.textContent=s[0];b.setAttribute('aria-controls','big');
+    b.style.backgroundImage='linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.65)),url("'+imageBase+s[2]+'")';
+    b.addEventListener('click',function(){select(i)});
+    // Pointer movement selects the moon; scrolling beneath a stationary pointer does not.
+    b.addEventListener('pointermove',function(event){if(event.pointerType==='mouse')select(i)});
+    b.addEventListener('focus',function(){select(i)});
+    orbit.appendChild(b);dots.push(b);
+  });
+  function positionMoons(){
+    if(!dots.length)return;
+    if(matchMedia('(max-width:760px)').matches)return;
+    var planet=big.getBoundingClientRect(),stage=orbit.getBoundingClientRect(),
+        centerX=planet.left-stage.left+planet.width/2,centerY=planet.top-stage.top+planet.height/2,
+        radius=planet.width/2+dots[0].offsetWidth*.8,
+        baseSize=dots[0].offsetWidth,gap=10,
+        step=2*Math.asin(Math.min(1,(baseSize+gap)/(2*radius)));
+    // Keep moon centres fixed so the enlarged selection overlaps its neighbours.
+    dots.forEach(function(b,i){
+      var angle=Math.PI+(i-(dots.length-1)/2)*step;
+      b.style.left=(centerX+radius*Math.cos(angle))+'px';
+      b.style.top=(centerY-radius*Math.sin(angle))+'px';
+    });
+  }
+  select(0);positionMoons();
+  new ResizeObserver(positionMoons).observe(orbit);
+})();
+
+// Existing website logo assets; two copies keep each scrolling strip continuous.
+(function(){
+  var clients=["1.png", "2-1.png", "3-1.png", "4.png", "5-1.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11-1.png", "12.png", "13.png"];
+  var certifications=['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg'];
+  function populate(id,files,folder,cert){
+    var h='';
+    for(var r=0;r<2;r++)files.forEach(function(file){
+      h+='<div class="chip'+(cert?' cert':'')+'"><img src="https://bigfootgroups.com/wp-content/uploads/'+folder+'/'+file+'" alt="" loading="lazy"></div>';
+    });
+    document.getElementById(id).innerHTML=h;
+  }
+  populate('track',clients,'2025/12',false);
+  populate('cert-track',certifications,'2026/03',true);
+})();
+</script>
+</body>
+</html>
