@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 from urllib.parse import urlsplit
 
 root=Path(__file__).parent
-public=root/'public'
+public=root/'dist'
 public.mkdir(exist_ok=True)
 pages=['Index.html','about-us.html','services.html','clients.html','career.html','request-a-quote.html','contact-us.html','land-transit.html','freight-forwarding.html','custom-clearance.html','warehousing.html','packers-and-movers.html','other-expertise.html']
 for name in pages:
