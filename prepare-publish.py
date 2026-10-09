@@ -1,5 +1,6 @@
 """Copy only the website's live files to the static hosting directory."""
 from pathlib import Path
+import shutil
 from html.parser import HTMLParser
 from urllib.parse import urlsplit
 
@@ -12,6 +13,8 @@ for name in pages:
     (public/('index.html' if name=='Index.html' else name)).write_text(content,encoding='utf-8')
 for name in ['site.css','site.js']:
     (public/name).write_bytes((root/name).read_bytes())
+if (root/'assets').is_dir():
+    shutil.copytree(root/'assets',public/'assets',dirs_exist_ok=True)
 
 class Links(HTMLParser):
     def handle_starttag(self,tag,attrs):

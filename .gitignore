@@ -6,3 +6,5 @@ Untitled-1.html
 old-site-source.html
 __pycache__/
 node_modules/
+!assets/**
+!dist/assets/**
