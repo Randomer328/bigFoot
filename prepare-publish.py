@@ -16,13 +16,23 @@ for name in ['site.css','site.js']:
 if (root/'assets').is_dir():
     shutil.copytree(root/'assets',public/'assets',dirs_exist_ok=True)
 
+phase1=root/'phase1'
+if phase1.is_dir():
+    (public/'phase1').mkdir(exist_ok=True)
+    for file in phase1.iterdir():
+        if file.suffix in ('.html','.css','.js'):
+            shutil.copyfile(file,public/'phase1'/file.name)
+
 class Links(HTMLParser):
+    def __init__(self,parent):
+        super().__init__()
+        self.parent=parent
     def handle_starttag(self,tag,attrs):
         for key,value in attrs:
             if key in ('href','src') and value:
                 parsed=urlsplit(value)
                 if not parsed.scheme and parsed.path:
-                    assert (public/parsed.path).is_file(),'Missing published file: '+value
-for page in public.glob('*.html'):
-    Links().feed(page.read_text(encoding='utf-8'))
-print('Prepared and checked 13 HTML files plus shared CSS and JavaScript for hosting.')
+                    assert (self.parent/parsed.path).is_file(),'Missing published file: '+value
+for page in public.rglob('*.html'):
+    Links(page.parent).feed(page.read_text(encoding='utf-8'))
+print('Prepared and checked',len(list(public.rglob('*.html'))),'HTML files plus shared CSS, JavaScript and images for hosting.')
