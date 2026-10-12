@@ -20,7 +20,7 @@ phase1=root/'phase1'
 if phase1.is_dir():
     (public/'phase1').mkdir(exist_ok=True)
     for file in phase1.iterdir():
-        if file.suffix in ('.html','.css','.js'):
+        if file.suffix in ('.html','.css','.js','.png'):
             shutil.copyfile(file,public/'phase1'/file.name)
 
 class Links(HTMLParser):
