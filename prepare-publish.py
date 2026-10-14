@@ -23,6 +23,10 @@ if phase1.is_dir():
         if file.suffix in ('.html','.css','.js','.png'):
             shutil.copyfile(file,public/'phase1'/file.name)
 
+phase5=root/'phase5'
+if phase5.is_dir():
+    shutil.copytree(phase5,public/'phase5',dirs_exist_ok=True)
+
 class Links(HTMLParser):
     def __init__(self,parent):
         super().__init__()
