@@ -59,3 +59,32 @@
   reduced.addEventListener('change',sync);sync();
  });
 })();
+// Reveal hero pennants once; count briefly to the fixed sample targets.
+(() => {
+ const flags=document.querySelector('.hero-stat-flags');
+ if(!flags)return;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ if(reduced.matches || !('IntersectionObserver' in window))return;
+ flags.classList.add('has-motion');
+ const observer=new IntersectionObserver(entries=>{
+  if(!entries.some(entry=>entry.isIntersecting))return;
+  observer.disconnect();flags.classList.add('is-visible');
+  flags.querySelectorAll('[data-count]').forEach((counter,index)=>{
+   const target=Number(counter.dataset.count),decimals=Number(counter.dataset.decimals);
+   const format=value=>value.toLocaleString('en-SG',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
+   if(reduced.matches){counter.textContent=format(target);return;}
+   counter.textContent=format(0);
+   setTimeout(()=>{
+    const started=performance.now();
+    function tick(now){
+     const progress=Math.min(1,(now-started)/600);
+     const value=target*(1-Math.pow(1-progress,3));
+     counter.textContent=format(decimals?value:Math.floor(value));
+     if(progress<1)requestAnimationFrame(tick);else counter.textContent=format(target);
+    }
+    requestAnimationFrame(tick);
+   },index*65);
+  });
+ },{threshold:.35});
+ observer.observe(flags);
+})();
