@@ -147,3 +147,64 @@
  reduced.addEventListener('change',()=>{if(reduced.matches)finish();});
  if('ResizeObserver' in window)new ResizeObserver(()=>{if(journey.dataset.state==='complete')position(1);else if(!hasStarted)position(0);}).observe(track);
 })();
+
+// A single selected capability, with shareable URLs and browser-history support.
+(() => {
+ const menus=[...document.querySelectorAll('.nav-services')];
+ document.addEventListener('click',event=>menus.forEach(menu=>{if(!menu.contains(event.target) || event.target.closest('a'))menu.open=false;}));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape')menus.forEach(menu=>{if(menu.open){menu.open=false;menu.querySelector('summary').focus();}});});
+ const choices=[...document.querySelectorAll('[data-solution-choice]')];
+ const panels=[...document.querySelectorAll('[data-solution-panel]')];
+ if(!choices.length)return;
+ const selector=document.querySelector('#solution-selector nav');
+ selector.setAttribute('role','tablist');
+ function select(key,updateURL=false){
+  if(!panels.some(panel=>panel.id===key))key='cold-chain';
+  choices.forEach(choice=>{const active=choice.dataset.solutionChoice===key;choice.setAttribute('aria-selected',String(active));choice.tabIndex=active?0:-1;});
+  panels.forEach(panel=>{panel.hidden=panel.id!==key;});
+  if(updateURL && location.hash!=='#'+key)history.pushState(null,'','#'+key);
+ }
+ choices.forEach((choice,index)=>{
+  choice.setAttribute('role','tab');choice.setAttribute('aria-controls',choice.dataset.solutionChoice);
+  choice.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();select(choice.dataset.solutionChoice,true);});
+  choice.addEventListener('keydown',event=>{
+   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+   event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?choices.length-1:(index+(event.key==='ArrowRight'?1:-1)+choices.length)%choices.length;
+   choices[next].focus();select(choices[next].dataset.solutionChoice,true);
+  });
+ });
+ panels.forEach(panel=>panel.setAttribute('role','tabpanel'));
+ const fromURL=()=>select(location.hash.slice(1));
+ window.addEventListener('popstate',fromURL);window.addEventListener('hashchange',fromURL);
+ document.body.classList.add('solutions-interactive');fromURL();
+})();
+
+// Persistent touch-device cues: native scrollbars alone may disappear on mobile.
+(() => {
+ const mobile=matchMedia('(max-width:980px)');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const strips=document.querySelectorAll('[data-scroll-track],.client-logo-track,.solution-jumps nav,.membership-logos');
+ strips.forEach((track,index)=>{
+  if(track.dataset.scrollControlsReady)return;
+  track.dataset.scrollControlsReady='true';
+  if(!track.id)track.id='mobile-scroll-track-'+index;
+  const label=track.getAttribute('aria-label') || 'items';
+  const controls=document.createElement('div');controls.className='mobile-scroll-controls';controls.hidden=true;
+  const buttons=[-1,1].map(direction=>{
+   const button=document.createElement('button');button.type='button';button.textContent=direction<0?'←':'→';
+   button.setAttribute('aria-label',(direction<0?'Previous ':'Next ')+label.toLowerCase());button.setAttribute('aria-controls',track.id);
+   button.addEventListener('click',()=>track.scrollBy({left:direction*track.clientWidth*.8,behavior:reduced.matches?'instant':'smooth'}));
+   controls.append(button);return button;
+  });
+  track.after(controls);
+  const update=()=>{
+   controls.hidden=!mobile.matches || track.scrollWidth<=track.clientWidth+3;
+   track.classList.toggle('has-arrow-navigation',!controls.hidden);
+   buttons[0].disabled=track.scrollLeft<=3;
+   buttons[1].disabled=track.scrollLeft>=track.scrollWidth-track.clientWidth-3;
+  };
+  track.addEventListener('scroll',update,{passive:true});mobile.addEventListener('change',update);
+  if('ResizeObserver' in window){const observer=new ResizeObserver(update);observer.observe(track);[...track.children].forEach(child=>observer.observe(child));}
+  window.addEventListener('load',update,{once:true});update();
+ });
+})();
