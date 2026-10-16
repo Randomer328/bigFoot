@@ -59,32 +59,91 @@
   reduced.addEventListener('change',sync);sync();
  });
 })();
-// Reveal hero pennants once; count briefly to the fixed sample targets.
+// One local sample journey, replayed by the three transport selectors.
 (() => {
- const flags=document.querySelector('.hero-stat-flags');
- if(!flags)return;
+ const journey=document.querySelector('.transport-journey');
+ if(!journey)return;
+ const data=JSON.parse(journey.querySelector('#transport-sample-data').textContent);
+ const tabs=[...journey.querySelectorAll('[data-transport-mode]')];
+ const replay=journey.querySelector('.transport-replay');
+ const stage=journey.querySelector('#transport-stage');
+ const track=journey.querySelector('.transport-track');
+ const vehicle=journey.querySelector('.transport-vehicle');
+ const metrics=[...journey.querySelectorAll('.transport-metric')];
+ const status=journey.querySelector('.transport-status');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- if(reduced.matches || !('IntersectionObserver' in window))return;
- flags.classList.add('has-motion');
- const observer=new IntersectionObserver(entries=>{
-  if(!entries.some(entry=>entry.isIntersecting))return;
-  observer.disconnect();flags.classList.add('is-visible');
-  flags.querySelectorAll('[data-count]').forEach((counter,index)=>{
-   const target=Number(counter.dataset.count),decimals=Number(counter.dataset.decimals);
-   const format=value=>value.toLocaleString('en-SG',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});
-   if(reduced.matches){counter.textContent=format(target);return;}
-   counter.textContent=format(0);
-   setTimeout(()=>{
-    const started=performance.now();
-    function tick(now){
-     const progress=Math.min(1,(now-started)/600);
-     const value=target*(1-Math.pow(1-progress,3));
-     counter.textContent=format(decimals?value:Math.floor(value));
-     if(progress<1)requestAnimationFrame(tick);else counter.textContent=format(target);
-    }
-    requestAnimationFrame(tick);
-   },index*65);
+ let mode='road',frame=0,observer,hasStarted=false;
+ const format=(value,item)=>value.toLocaleString('en-SG',{minimumFractionDigits:item.decimals,maximumFractionDigits:item.decimals});
+ function position(progress){
+  const distance=Math.max(0,track.clientWidth-vehicle.offsetWidth);
+  let altitude=0,pitch=0;
+  if(mode==='air' && !reduced.matches){
+   // Keep the original glide, easing the nose to level without a landing bump.
+   const approach=Math.min(1,progress/.82);
+   altitude=-32*Math.pow(1-approach,2);
+   pitch=6*Math.pow(1-approach,2);
+  }
+  vehicle.style.transform=`translate(${distance*progress}px,${altitude}px) rotate(${pitch}deg)`;
+  return distance*progress+vehicle.offsetWidth*.75;
+ }
+ function finish(){
+  cancelAnimationFrame(frame);position(1);journey.dataset.state='complete';
+  data[mode].metrics.forEach((item,i)=>{metrics[i].classList.add('is-revealed');metrics[i].querySelector('.transport-count').textContent=format(item.value,item);});
+  status.textContent=`${data[mode].vehicle} journey complete.`;
+ }
+ function play(){
+  cancelAnimationFrame(frame);hasStarted=true;observer?.disconnect();
+  if(reduced.matches){finish();return;}
+  journey.dataset.state='running';position(0);
+  const values=data[mode].metrics;
+  const arrived=values.map(()=>null);
+  metrics.forEach((metric,i)=>{metric.classList.remove('is-revealed');metric.querySelector('.transport-count').textContent=format(0,values[i]);});
+  status.textContent=`${data[mode].vehicle} moving across the route.`;
+  const started=performance.now();
+  function tick(now){
+   const progress=Math.min(1,(now-started)/3200);
+   const leading=position(progress);
+   let allCounted=true;
+   values.forEach((item,i)=>{
+    const marker=track.clientWidth*(i+.5)/4;
+    if(arrived[i]===null && (leading>=marker || progress===1)){arrived[i]=now;metrics[i].classList.add('is-revealed');}
+    if(arrived[i]===null){allCounted=false;return;}
+    const fraction=Math.min(1,(now-arrived[i])/500);
+    const amount=item.value*(1-Math.pow(1-fraction,3));
+    metrics[i].querySelector('.transport-count').textContent=format(fraction===1?item.value:(item.decimals?amount:Math.floor(amount)),item);
+    if(fraction<1)allCounted=false;
+   });
+   if(progress<1 || !allCounted)frame=requestAnimationFrame(tick);else finish();
+  }
+  frame=requestAnimationFrame(tick);
+ }
+ function select(next,animate=true){
+  cancelAnimationFrame(frame);mode=next;journey.dataset.mode=mode;
+  tabs.forEach(tab=>{const selected=tab.dataset.transportMode===mode;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;});
+  stage.setAttribute('aria-labelledby',`transport-tab-${mode}`);
+  journey.querySelectorAll('[data-transport-vehicle]').forEach(art=>art.hidden=art.dataset.transportVehicle!==mode);
+  data[mode].metrics.forEach((item,i)=>{
+   metrics[i].querySelector('.transport-count').textContent=format(item.value,item);
+   metrics[i].querySelector('.transport-unit').textContent=item.unit;
+   metrics[i].querySelector('.transport-label').textContent=item.label;
+   metrics[i].setAttribute('aria-label',`${format(item.value,item)} ${item.unit} ${item.label} — sample`);
   });
- },{threshold:.35});
- observer.observe(flags);
+  if(animate)play();else{position(0);status.textContent=`${data[mode].vehicle} selected.`;}
+ }
+ tabs.forEach((tab,i)=>{
+  tab.addEventListener('click',()=>select(tab.dataset.transportMode));
+  tab.addEventListener('keydown',event=>{
+   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+   event.preventDefault();const target=event.key==='Home'?0:event.key==='End'?tabs.length-1:(i+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+   tabs[target].focus();select(tabs[target].dataset.transportMode);
+  });
+  tab.disabled=false;
+ });
+ replay.addEventListener('click',play);replay.disabled=false;
+ journey.classList.add('transport-enhanced');select('road',false);
+ if(reduced.matches || !('IntersectionObserver' in window)){finish();}else{
+  observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))play();},{threshold:.3});observer.observe(journey);
+ }
+ reduced.addEventListener('change',()=>{if(reduced.matches)finish();});
+ if('ResizeObserver' in window)new ResizeObserver(()=>{if(journey.dataset.state==='complete')position(1);else if(!hasStarted)position(0);}).observe(track);
 })();
