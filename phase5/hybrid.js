@@ -208,3 +208,31 @@
   window.addEventListener('load',update,{once:true});update();
  });
 })();
+
+// Topic menus share one open dropdown; ESG keeps one perspective in view.
+(() => {
+ const menus=[...document.querySelectorAll('.site-header .nav-services')];
+ menus.forEach(menu=>menu.addEventListener('toggle',()=>{if(menu.open)menus.forEach(other=>{if(other!==menu)other.open=false;});}));
+ const tabs=[...document.querySelectorAll('[data-esg-choice]')];
+ const panels=[...document.querySelectorAll('[data-esg-panel]')];
+ if(!tabs.length)return;
+ document.querySelector('.esg-tabs').setAttribute('role','tablist');
+ function select(key,update=false){
+  if(!panels.some(panel=>panel.dataset.esgPanel===key))key='environment';
+  tabs.forEach(tab=>{const active=tab.dataset.esgChoice===key;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
+  panels.forEach(panel=>panel.hidden=panel.dataset.esgPanel!==key);
+  if(update && location.hash!=='#'+key)history.pushState(null,'','#'+key);
+ }
+ tabs.forEach((tab,index)=>{
+  tab.id='esg-tab-'+tab.dataset.esgChoice;tab.setAttribute('role','tab');tab.setAttribute('aria-controls',tab.dataset.esgChoice);
+  tab.addEventListener('click',event=>{if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;event.preventDefault();select(tab.dataset.esgChoice,true);});
+  tab.addEventListener('keydown',event=>{
+   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
+   event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+   tabs[next].focus();select(tabs[next].dataset.esgChoice,true);
+  });
+ });
+ panels.forEach(panel=>{panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby','esg-tab-'+panel.dataset.esgPanel);panel.tabIndex=0;});
+ const sync=()=>{const key=location.hash.slice(1);if(key==='roadmap')return;select(key);};
+ select(location.hash.slice(1));window.addEventListener('hashchange',sync);window.addEventListener('popstate',sync);
+})();
