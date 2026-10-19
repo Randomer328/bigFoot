@@ -27,6 +27,10 @@ phase5=root/'phase5'
 if phase5.is_dir():
     shutil.copytree(phase5,public/'phase5',dirs_exist_ok=True)
 
+medicare=root/'medicare'
+if medicare.is_dir():
+    shutil.copytree(medicare,public/'medicare',dirs_exist_ok=True)
+
 class Links(HTMLParser):
     def __init__(self,parent):
         super().__init__()
