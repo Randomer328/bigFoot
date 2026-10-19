@@ -31,6 +31,10 @@ medicare=root/'medicare'
 if medicare.is_dir():
     shutil.copytree(medicare,public/'medicare',dirs_exist_ok=True)
 
+india=root/'india'
+if india.is_dir():
+    shutil.copytree(india,public/'india',dirs_exist_ok=True)
+
 class Links(HTMLParser):
     def __init__(self,parent):
         super().__init__()
