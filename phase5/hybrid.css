@@ -197,3 +197,10 @@
 .page-contact .enquiry-form{min-width:0;border:0;border-radius:0;margin:0;background:#f4f8fc;padding:64px 60px;padding-right:max(60px,calc((100vw - 1680px)/2))}
 @media(max-width:1100px){.page-contact .contact-details,.page-contact .enquiry-form{padding:45px 30px}}
 @media(max-width:700px){.page-contact .contact-layout{gap:0}.page-contact .contact-details,.page-contact .enquiry-form{padding:38px 20px}}
+
+/* Allow content columns to shrink; reserve room for the accordion icon's rotation. */
+.topic-split>*,.topic-hero>.container>*,.topic-related>.container>div>*,.people-values>*,.roadmap-grid>*,.community-impact>.container>*,.contact-layout>*,.solution-layout>*,.hy-story-grid>*,.hy-cold-layout>*,.v3-group-layout>*{min-width:0}
+.accordion summary{padding-right:12px}.accordion summary>span{flex-shrink:0}
+@media(max-width:700px){.singapore-stamp strong{font-size:32px}}
+
+@media(max-width:380px){.transport-count{font-size:clamp(20px,6.4vw,24px)}.page-contact .contact-hero h1{font-size:clamp(36px,12vw,43px)}}
