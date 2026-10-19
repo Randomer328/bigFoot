@@ -39,4 +39,8 @@ body.medicare{--ink:#174a61;--muted:#52717c;--soft:#edf9f7;--detail:#087d80}.uti
 /* Curved shape transition between the two green sections. */
 .process{background:#087d80;padding-bottom:150px}.care-growth{position:relative;overflow:visible;background:#12636b}.care-growth:before{content:'';position:absolute;left:0;right:0;top:-72px;height:73px;background:inherit;border-radius:55% 45% 0 0 / 100% 100% 0 0}
 @media(max-width:760px){.process{padding-bottom:105px}.care-growth:before{top:-42px;height:43px}}
-
+/* Larger banner typography. */
+.hero h1{font-size:clamp(64px,5.4vw,106px);line-height:1.05}.hero p{font-size:21px;line-height:1.75;max-width:600px}.care-kicker{font-size:12px}.hero-reassurance{font-size:13px}
+@media(max-width:1100px){.hero h1{font-size:64px}.hero p{font-size:19px}}
+@media(max-width:760px){.hero h1{font-size:62px;line-height:1.07}.medicare .hero h1 em{font-size:.61em}.hero p{font-size:18px;line-height:1.75}.care-kicker{font-size:11px}.hero-reassurance{font-size:11px}}
+@media(max-width:360px){.hero h1{font-size:55px}.hero p{font-size:17px}.hero-reassurance{font-size:10px}}
