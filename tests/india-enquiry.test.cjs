@@ -15,4 +15,3 @@ test('explicit dry storage enquiries reach the published dry storage address',()
 test('rejects missing fields, invalid email, and unrecognised enquiry topics',()=>{
  for(const data of [{...valid,name:' '},{...valid,email:'bad'},{...valid,message:''},{...valid,topic:'attacker@example.com'}])assert.throws(()=>buildEnquiryDraft(data));
 });
-
