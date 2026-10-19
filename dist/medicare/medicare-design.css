@@ -36,5 +36,7 @@ body.medicare{--ink:#174a61;--muted:#52717c;--soft:#edf9f7;--detail:#087d80}.uti
 @media(max-width:1100px){.growth-layout{gap:45px}.future-card{padding:32px}}
 @media(max-width:760px){.care-portrait{--portrait-radius:95px 25px 65px 25px;padding:0}.portrait-shape{inset:0;transform:translate(12px,-14px)}.growth-layout{grid-template-columns:1fr;gap:30px}.future-card{padding:28px;max-width:none;border-radius:24px}.future-card h3{font-size:31px}.growth-copy>p{font-size:16px}.future-icon{width:57px;height:57px;margin:25px 0 22px}}
 
-/* Continuous green transition across the process and future-care sections. */
-.process{background:linear-gradient(180deg,#087d80 0%,#0b7077 100%)}.care-growth{background:linear-gradient(180deg,#0b7077 0%,#087a78 100%)}
+/* Curved shape transition between the two green sections. */
+.process{background:#087d80;padding-bottom:150px}.care-growth{position:relative;overflow:visible;background:#12636b}.care-growth:before{content:'';position:absolute;left:0;right:0;top:-72px;height:73px;background:inherit;border-radius:55% 45% 0 0 / 100% 100% 0 0}
+@media(max-width:760px){.process{padding-bottom:105px}.care-growth:before{top:-42px;height:43px}}
+
