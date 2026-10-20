@@ -75,3 +75,9 @@ body.medicare{--bigfoot-blue:#155b9f;--bigfoot-red:#bc373c}
 .contact-copy .btn:not(.light):hover{background:#9f2931;border-color:#9f2931}
 footer{border-top:4px solid var(--bigfoot-blue)}
 @media(max-width:760px){.care-shortcuts{padding-top:40px;padding-bottom:40px}}
+
+/* Readable section labels throughout Medicare. */
+.eyebrow{font-size:15px;line-height:1.5;letter-spacing:.075em}
+.care-kicker{font-size:14px}
+.group-context-cards article>span{font-size:14px;line-height:1.5}
+@media(max-width:760px){.eyebrow{font-size:14px;letter-spacing:.06em}.care-kicker{font-size:13px}}
