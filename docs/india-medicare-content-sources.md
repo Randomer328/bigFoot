@@ -17,3 +17,6 @@ The PDF is an awards submission, not evidence of winning Enterprise 50. No Enter
 
 ## Legacy wording awaiting clarification
 The source gives founding in 1992 and calls the legacy 33 years (pages 5 and 43), while the user previously requested 35+ years in Singapore. That existing user-supplied wording remains unchanged pending clarification; no new founding-date claim was added. The source also mixes active markets and pipeline markets, so no footprint count was added.
+
+## FMCG emphasis
+The user explicitly requested spices, rice and consumer goods on 20 October 2026. India now highlights FMCG dry-storage enquiries and keeps temperature-controlled services separate. Product suitability is confirmed by the team. Dry-storage panel enquiries route to the published drystorage@bigfootindia.in address.
