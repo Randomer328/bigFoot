@@ -46,3 +46,32 @@ body.medicare{--ink:#174a61;--muted:#52717c;--soft:#edf9f7;--detail:#087d80}.uti
 @media(max-width:360px){.hero h1{font-size:55px}.hero p{font-size:17px}.hero-reassurance{font-size:10px}}
 
 .group-context{background:#d4ebe8}.group-context-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.group-context-cards article{padding:30px;border-radius:24px;background:#c2e5dc}.group-context-cards article:nth-child(2){background:#c4deef}.group-context-cards article:nth-child(3){background:#cddff2}.group-context-cards article>span{font-size:11px;font-weight:600;color:#23695e;letter-spacing:.04em}.group-context-cards h3{font-size:24px;margin-top:18px;color:#174a61}.group-context-cards p{font-size:15px;line-height:1.85;margin-top:18px;color:#436875}.group-scope{font-size:12px;margin-top:22px;color:#4b7373}@media(max-width:900px){.group-context-cards{grid-template-columns:1fr;gap:18px}.group-context-cards article{padding:27px}}
+
+/* Bigfoot blue and logo-red accents, balanced with the medical mint palette. */
+body.medicare{--bigfoot-blue:#155b9f;--bigfoot-red:#bc373c}
+.care-shortcuts{padding-top:64px;padding-bottom:64px;background:#e3f3f2}
+.ribbon a{border-top:4px solid var(--bigfoot-blue)!important;box-shadow:0 8px 22px #174a6108}
+.ribbon a:nth-child(1){background:#c9e5fa}
+.ribbon a:nth-child(2){background:#c6eadf;border-top-color:#087d80!important}
+.ribbon a:nth-child(3){background:#f7dfe1;border-top-color:var(--bigfoot-red)!important}
+.ribbon a:nth-child(3) .service-symbol{background:#fff5f5;color:var(--bigfoot-red)}
+.ribbon a:nth-child(3) b{color:var(--bigfoot-red)}
+.ribbon strong,.brand-label strong{color:var(--bigfoot-blue)}
+.portrait-note{border-bottom:4px solid var(--bigfoot-red)}
+.heart-icon{background:#f9dfe2;color:var(--bigfoot-red)}
+#about .eyebrow,#care .eyebrow,.people-section .eyebrow,.faq-intro .eyebrow{color:#a72d36}
+.photo-note{border-bottom:4px solid var(--bigfoot-red)}
+.photo-note strong,#about h2,#services h2,#care h2,.people-section h2,.faq-intro h2{color:var(--bigfoot-blue)}
+.tab[aria-selected=true]{background:var(--bigfoot-blue);border-color:var(--bigfoot-blue)}
+.extra-services article:nth-child(3){background:#f2dde3}
+.extra-services article:nth-child(3) h3{color:#9d303b}
+.value:nth-child(4){background:#f3e3e7;border-top-color:var(--bigfoot-red)!important}
+.value:nth-child(4) .num{background:#fff2f3;color:#a72d36}
+.group-context-cards article:nth-child(3){background:#f0e0e5}
+.group-context-cards article:nth-child(3)>span{color:#a72d36}
+.future-tag{background:#fbe3e6;color:#9d303b}
+.future-card{border-top:4px solid var(--bigfoot-red)}
+.contact-copy .btn:not(.light){background:var(--bigfoot-red);border-color:var(--bigfoot-red);color:#fff}
+.contact-copy .btn:not(.light):hover{background:#9f2931;border-color:#9f2931}
+footer{border-top:4px solid var(--bigfoot-blue)}
+@media(max-width:760px){.care-shortcuts{padding-top:40px;padding-bottom:40px}}
