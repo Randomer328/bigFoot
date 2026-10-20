@@ -52,7 +52,7 @@
  document.querySelectorAll('[data-open-enquiry]').forEach(link=>link.addEventListener('click',e=>{
   if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
   if(!openEnquiry(link))return;e.preventDefault();preview.hidden=true;document.getElementById('form-error').textContent='';document.getElementById('copy-status').textContent='';
-  const panel=link.closest('[role=tabpanel]');form.elements.topic.value=panel?{'cold-storage':'Cold storage','warehousing':'Dry storage','handling-delivery':'Handling & delivery'}[panel.id]:'General';
+  const panel=link.closest('[role=tabpanel]');form.elements.topic.value=panel?{'cold-storage':'Cold storage','warehousing':'Cold storage','handling-delivery':'Handling & delivery'}[panel.id]:'General';
   enquiry.scrollTop=0;form.elements.name.focus({preventScroll:true});
  }));
  form.addEventListener('input',()=>{preview.hidden=true;document.getElementById('form-error').textContent='';document.getElementById('copy-status').textContent='';});
