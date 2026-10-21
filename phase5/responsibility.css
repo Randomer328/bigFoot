@@ -77,3 +77,7 @@
 
 /* Connected paragraphs keep the consolidated ESG topics easy to read. */
 .esg-panel .topic-details details p+p{margin-top:1em}
+
+/* Approved photographs from the corporate event collection. */
+.corporate-photo{margin:0;min-width:0}.corporate-photo img{display:block;width:100%;height:auto;border-radius:18px}.corporate-photo figcaption{font-size:12px;line-height:1.6;color:#536575;margin-top:12px}.corporate-visit{background:#f2ede4}.corporate-wellbeing{background:#e3efdf}.corporate-recognition{background:#e9edf7}.corporate-panorama img{max-height:560px;object-fit:contain;background:#d3e3d4}.corporate-recruitment{max-width:880px;margin:30px 0}.community-hero .community-portrait{height:auto;width:100%;max-width:650px;aspect-ratio:16/10;transform:none;border-radius:20px}.community-hero .community-portrait img{object-fit:cover;object-position:center}.community-hero .community-portrait>span{bottom:18px;left:18px;font-size:18px;padding:12px 18px}.sustain-hero-visual>img{object-position:45% center}
+@media(max-width:800px){.corporate-visit .topic-split{gap:30px}.corporate-recognition .topic-split{gap:30px}.corporate-photo img{border-radius:12px}.community-hero .community-portrait{width:100%;margin:10px 0;max-width:none}.community-hero .community-portrait>span{font-size:14px;bottom:10px;left:10px}.corporate-recruitment{margin:22px 0}}
