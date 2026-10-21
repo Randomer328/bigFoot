@@ -81,3 +81,6 @@ footer{border-top:4px solid var(--bigfoot-blue)}
 .care-kicker{font-size:14px}
 .group-context-cards article>span{font-size:14px;line-height:1.5}
 @media(max-width:760px){.eyebrow{font-size:14px;letter-spacing:.06em}.care-kicker{font-size:13px}}
+
+/* Group community photography, separate from clinical services. */
+.community-photo{display:grid;grid-template-columns:1.5fr 1fr;margin:0 0 32px;border-radius:26px;overflow:hidden;background:#155b9f;color:#fff}.community-photo img{display:block;width:100%;height:auto;align-self:center}.community-photo figcaption{align-self:center;padding:35px}.community-photo figcaption>span{font-size:14px;color:#bfece2}.community-photo h3{font-family:Lora,Georgia,serif;font-size:30px;font-weight:500;line-height:1.3;margin-top:18px;color:#fff}.community-photo p{font-size:14px;line-height:1.7;margin-top:18px;color:#e0effa}@media(max-width:760px){.community-photo{grid-template-columns:1fr;border-radius:20px}.community-photo figcaption{padding:25px}.community-photo h3{font-size:27px}}
