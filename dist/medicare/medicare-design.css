@@ -88,16 +88,9 @@ footer{border-top:4px solid var(--bigfoot-blue)}
 /* Clear booking actions and the recognisable WhatsApp brand mark. */
 .step .step-booking{font-size:12px;min-height:40px;padding:9px 16px;gap:12px;margin-top:18px;color:#fff}.faqs p a{color:#155b9f;text-decoration:underline;text-underline-offset:3px;font-weight:600}.float-contact{background:#087d58;color:#fff}.float-contact svg{display:block;width:28px;height:28px}
 
-/* Booking interaction options: calendar + lift, colour shift, and soft halo. */
-.appointment-lift,.appointment-colour,.appointment-halo{position:relative;gap:12px;transition:background-color .22s,color .22s,transform .22s,box-shadow .22s}
-.booking-calendar{flex-shrink:0;display:block}
-.appointment-lift:hover,.appointment-lift:focus-visible{transform:translateY(-3px);box-shadow:0 9px 22px #062d4d26}
-.appointment-lift:active{transform:translateY(0);box-shadow:0 2px 6px #062d4d1a}
-.hero .appointment-colour:hover,.hero .appointment-colour:focus-visible{background:#a6efe1;border-color:#a6efe1;color:#124a61;transform:none;box-shadow:none}
-.hero .appointment-halo:hover,.hero .appointment-halo:focus-visible{background:#fff;border-color:#fff;transform:none;box-shadow:0 0 0 5px #a6efe14d,0 0 0 10px #a6efe11a}
-.appointment-lift:focus-visible,.appointment-colour:focus-visible,.appointment-halo:focus-visible{outline:3px solid #64cbd6;outline-offset:4px}
-.booking-comparison{display:grid;gap:15px}.booking-option{display:flex;align-items:center;gap:18px}.booking-option .btn{min-width:235px;justify-content:center}.booking-style-label{color:#dbeefa;font-size:12px}.hero-actions:has(.booking-comparison){align-items:flex-start}.hero-actions:has(.booking-comparison)>.gentle-link{margin-top:8px}
-@media(max-width:760px){.booking-option{gap:12px}.booking-option .btn{min-width:0;padding-inline:19px}.booking-style-label{font-size:11px}.booking-comparison{width:100%}}
-@media(prefers-reduced-motion:reduce){.appointment-lift,.appointment-colour,.appointment-halo{transition:none}.appointment-lift:hover,.appointment-lift:focus-visible{transform:none}}
-
-.appointment-lift>span,.appointment-colour>span,.appointment-halo>span{font-size:inherit}.booking-option .btn{flex:1}.booking-style-label{flex:0 0 65px}
+/* Calendar booking buttons: gentle lift, with colour shift and halo in the header. */
+.appointment-lift,.appointment-glow{position:relative;gap:12px;transition:background-color .22s,color .22s,transform .22s,box-shadow .22s}.booking-calendar{flex-shrink:0;display:block}.appointment-lift>span,.appointment-glow>span{font-size:inherit}
+.appointment-lift:hover,.appointment-lift:focus-visible{transform:translateY(-3px);box-shadow:0 9px 22px #062d4d26}.appointment-lift:active{transform:translateY(0);box-shadow:0 2px 6px #062d4d1a}
+.header .appointment-glow:hover,.header .appointment-glow:focus-visible{background:#087d80;border-color:#087d80;color:#fff;transform:none;box-shadow:0 0 0 5px #087d8026,0 0 0 10px #087d800d}
+.appointment-lift:focus-visible,.appointment-glow:focus-visible{outline:3px solid #64cbd6;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.appointment-lift,.appointment-glow{transition:none}.appointment-lift:hover,.appointment-lift:focus-visible{transform:none}}
