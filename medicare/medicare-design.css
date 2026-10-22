@@ -94,3 +94,6 @@ footer{border-top:4px solid var(--bigfoot-blue)}
 .header .appointment-glow:hover,.header .appointment-glow:focus-visible{background:#087d80;border-color:#087d80;color:#fff;transform:none;box-shadow:0 0 0 5px #087d8026,0 0 0 10px #087d800d}
 .appointment-lift:focus-visible,.appointment-glow:focus-visible{outline:3px solid #64cbd6;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.appointment-lift,.appointment-glow{transition:none}.appointment-lift:hover,.appointment-lift:focus-visible{transform:none}}
+
+/* Cool the hero photograph into the surrounding blue banner. */
+.care-portrait:after{content:"";position:absolute;inset:0;z-index:0;border-radius:var(--portrait-radius);background:linear-gradient(115deg,rgba(16,73,120,.25),rgba(21,91,159,.18) 60%,rgba(22,124,170,.12));pointer-events:none}
