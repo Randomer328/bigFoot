@@ -37,3 +37,5 @@ body.india{--ink:#173e53;--muted:#59717b;--soft:#fff5e9;--line:#dce7e7}.utility{
 
 /* Local team photo in the Singapore-to-India story. */
 .india-team-story{grid-column:1/-1;margin:0;border-radius:24px;overflow:hidden;background:#ffffff12}.india-team-story img{display:block;width:100%;height:auto}.india-team-story figcaption{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:23px 28px}.india-team-story figcaption strong{font-size:22px;font-weight:500;color:#fff}.india-team-story figcaption span{font-size:14px;color:#d4eee6}@media(max-width:760px){.india-team-story{border-radius:18px}.india-team-story figcaption{display:block;padding:20px}.india-team-story figcaption strong{display:block;font-size:20px}.india-team-story figcaption span{display:block;margin-top:8px;font-size:13px}}
+
+.hero-intro .singapore-brand{color:#ed2939}
