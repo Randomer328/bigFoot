@@ -204,3 +204,6 @@
 @media(max-width:700px){.singapore-stamp strong{font-size:32px}}
 
 @media(max-width:380px){.transport-count{font-size:clamp(20px,6.4vw,24px)}.page-contact .contact-hero h1{font-size:clamp(36px,12vw,43px)}}
+
+/* Keep the sustainability destination below the carbon footprint link. */
+#sustainability .initiative-data-link{display:table;width:fit-content;max-width:100%}
