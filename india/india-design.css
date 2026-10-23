@@ -50,3 +50,7 @@ body.india{--ink:#173e53;--muted:#59717b;--soft:#fff5e9;--line:#dce7e7}.utility{
 
 /* Align the brand introduction with the headline rather than its bottom edge. */
 @media(min-width:1001px){.hero-intro{align-self:start;margin-top:44px}}
+
+/* Frame the new facility photo around its signage, and show the complete team photograph. */
+.hero-landscape .hero-photo{object-position:center 8%}
+.india-team-story img{aspect-ratio:4/3;object-fit:contain}
