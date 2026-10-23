@@ -47,3 +47,6 @@ body.india{--ink:#173e53;--muted:#59717b;--soft:#fff5e9;--line:#dce7e7}.utility{
 @media(max-width:1000px){.hero-top{grid-template-columns:1fr}.hero-intro{max-width:650px;gap:22px}.hero-intro .singapore-brand-stamp{width:116px}.hero .hero-intro-copy p{font-size:18px}}
 @media(max-width:760px){.hero-intro{display:flex;gap:16px;align-items:center;max-width:none}.hero-intro .singapore-brand-stamp{width:92px}.hero .hero-intro-copy p{font-size:16px;line-height:1.6}.hero .hero-intro-copy p+p{margin-top:10px}}
 @media(max-width:360px){.hero-intro{gap:12px}.hero-intro .singapore-brand-stamp{width:76px}.hero .hero-intro-copy p{font-size:15px}}
+
+/* Align the brand introduction with the headline rather than its bottom edge. */
+@media(min-width:1001px){.hero-intro{align-self:start;margin-top:44px}}
