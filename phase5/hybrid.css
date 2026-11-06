@@ -207,3 +207,35 @@
 
 /* Keep the sustainability destination below the carbon footprint link. */
 #sustainability .initiative-data-link{display:table;width:fit-content;max-width:100%}
+
+/* Six original service stories, linked from Who We Are. */
+.who-navigation-menu>a:first-child{border-bottom:1px solid #dce5eb;margin-bottom:5px;font-weight:750}
+.service-story-hero{background:#102e4b;color:#fff;padding:75px 0 90px;overflow:hidden}
+.service-story-hero>.container{display:grid;grid-template-columns:1.2fr 1fr;gap:8%;align-items:center}
+.service-story-hero h1{font-size:clamp(48px,4.7vw,82px);line-height:1.08;margin:20px 0 25px}
+.service-story-hero h1 em{color:#a9d4eb;font-style:normal}.service-story-hero .hy-kicker{color:#f5b4a6;margin-top:30px}
+.service-story-hero p:not(.hy-kicker){max-width:580px;color:#d9e6f0;font-size:19px;margin-bottom:30px}
+.service-breadcrumb{font-size:13px;color:#b9cfdf}.service-breadcrumb:hover{text-decoration:underline}
+.service-story-art{aspect-ratio:1.1;position:relative;display:grid;place-items:center;border-radius:45% 45% 12% 12%;background:radial-gradient(circle at 35% 30%,#4a80a2,#254d71 60%,#713b56);overflow:hidden;border:1px solid #8ba7bc55}
+.service-story-art>svg{width:42%;height:42%;color:#c8e7f8;stroke-width:1.3}.service-story-art>img{width:100%;height:100%;object-fit:cover}
+.service-story-art>span{position:absolute;bottom:22px;left:25px;background:#102e4be8;color:#fff;padding:8px 15px;border-radius:20px;font-size:12px;letter-spacing:.04em}
+.service-story-heading{max-width:660px;margin-bottom:45px}.service-story-heading>p:last-child{color:#536575;margin-top:20px}
+.service-story-content{background:#edf3f7}.service-story-topics{border-top:1px solid #bacbd8}
+.service-story-topics details{border-bottom:1px solid #bacbd8}.service-story-topics summary{display:flex;align-items:center;gap:25px;list-style:none;padding:26px 0;cursor:pointer}.service-story-topics summary::-webkit-details-marker{display:none}
+.service-topic-number{font-size:12px;color:#a82638;flex:none}.service-story-topics h3{font-size:clamp(23px,2vw,32px);line-height:1.3;margin:0}.service-topic-plus{margin-left:auto;font-size:28px;color:#a82638;flex:none}
+.service-story-topics details[open] .service-topic-plus{transform:rotate(45deg)}.service-story-topics details>p{margin:0;padding:0 45px 28px;max-width:950px;color:#435f72;line-height:1.8}
+.service-story-topics summary:focus-visible{outline:2px solid #ba252d;outline-offset:4px}
+.service-story-next{padding:75px 0;background:#dceae4}.service-story-next>.container{display:grid;grid-template-columns:1.2fr 1fr;gap:12%}.service-story-next h2{font-size:clamp(35px,3vw,52px);line-height:1.15;margin:20px 0}.service-story-next p:not(.hy-kicker){margin-bottom:25px}.service-story-next nav a{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid #9fb9b5;padding:14px 0;font-size:16px}.service-story-next nav a:hover{color:#ba252d}
+@media(max-width:800px){.service-story-hero{padding:45px 0 60px}.service-story-hero>.container,.service-story-next>.container{grid-template-columns:1fr;gap:40px}.service-story-art{aspect-ratio:1.7;max-width:550px;width:100%}.service-story-hero h1{font-size:clamp(40px,9vw,64px)}.service-story-hero p:not(.hy-kicker){font-size:17px}.service-story-topics summary{gap:14px;padding:22px 0}.service-story-topics details>p{padding:0 0 24px;font-size:16px}.service-story-next{padding:55px 0}.who-navigation-menu{max-height:70vh;overflow-y:auto}}
+
+.company-introduction{background:#edf3f7}.company-introduction h2{line-height:1.15}.company-introduction p:not(.hy-kicker){margin-bottom:24px;color:#48636f}.company-service-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:35px}.company-service-links a{display:flex;justify-content:space-between;gap:15px;padding:20px;border-top:2px solid #ad2836;background:#fff}.company-service-links a:hover{background:#e3edf5}.company-legal{font-size:13px!important;color:#aec9da!important}.who-navigation-menu{max-height:75vh;overflow-y:auto}@media(max-width:800px){.company-service-links{grid-template-columns:1fr}.company-introduction .topic-split{gap:30px}}
+
+.original-service-content{max-width:1100px;margin-top:40px}.original-service-group{margin:0 0 45px}.original-service-group>h3{font-size:30px;color:#102e4b;margin-bottom:22px}.original-service-group details{border-top:1px solid #bdcdd8}.original-service-group details:last-child{border-bottom:1px solid #bdcdd8}.original-service-group summary{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:21px 0;list-style:none;cursor:pointer;font-size:19px;font-weight:650}.original-service-group summary::-webkit-details-marker{display:none}.original-service-group summary>span{font-size:24px;color:#ba252d}.original-service-group details[open] summary>span{transform:rotate(45deg)}.original-service-group details>div{padding:0 0 24px;max-width:950px;color:#48636f;line-height:1.8}.original-service-group details p+p{margin-top:18px}.original-service-group ul{padding-left:24px;margin-top:18px}.original-service-group summary:focus-visible{outline:2px solid #ba252d;outline-offset:3px}@media(max-width:700px){.original-service-group>h3{font-size:25px}.original-service-group summary{font-size:17px}.original-service-group details>div{font-size:16px}}
+
+.reference-map .market-company-link{display:inline-flex;align-items:baseline;gap:8px;color:inherit;padding:2px 0}.reference-map .market-company-link>span{font-size:12px;color:#9dd3fa}.reference-map .market-company-link:hover,.reference-map .market-company-link:focus-visible{color:#fff;text-decoration:underline;text-underline-offset:4px}.market-group-tagline{font-size:14px;color:#c9dfef;margin:15px 0 22px;max-width:470px}
+
+/* Full service paragraphs retain readable spacing and complete bullet lists. */
+.solution-copy .service-rich-copy{padding-bottom:20px}.solution-copy .service-rich-copy p{margin:0 0 18px;line-height:1.85}.solution-copy .service-rich-copy p:last-child{margin-bottom:0}.solution-copy .service-rich-copy ul{padding-left:24px;margin:20px 0 0;list-style:disc;line-height:1.8;color:#536575}.solution-copy .service-rich-copy li{padding-left:5px;margin:8px 0}
+
+/* Separate the requirements CTA from the final service accordion border. */
+.page-solutions .solution-copy>.button{margin-top:28px}
