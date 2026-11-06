@@ -35,6 +35,10 @@ india=root/'india'
 if india.is_dir():
     shutil.copytree(india,public/'india',dirs_exist_ok=True)
 
+meats=root/'Meats'
+if meats.is_dir():
+    shutil.copytree(meats,public/'Meats',dirs_exist_ok=True)
+
 class Links(HTMLParser):
     def __init__(self,parent):
         super().__init__()
