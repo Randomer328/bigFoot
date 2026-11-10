@@ -64,3 +64,6 @@ Implementation guidance: Google Search Central canonical URLs, sitemap construct
 
 
 The top banner image and heading are now static; its pause/resume control has been removed.
+
+
+Scrolling chapters retain the open layout with only a fine divider line; coloured panels are removed and the larger text is retained.
