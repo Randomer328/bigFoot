@@ -2,7 +2,7 @@
 
 A warm editorial wholesale website with five pages: home, Australia, Singapore, product range and wholesale enquiries. Built as static HTML/CSS/JavaScript, with no runtime packages.
 
-The files in this directory are ready to serve without a build step. Run `python -m http.server 8773` in this directory for a preview. The repository publisher copies these files to `dist/Meats/`.
+These static files are ready to serve without a build step. Run `python -m http.server 8773` here for a local preview. The repository publisher copies this directory to `dist/Meats/`.
 
 ## Content and assets
 
@@ -41,4 +41,23 @@ New illustrative product photographs:
 - Offal: https://stemplecreek.com/collections/offal — illustrative lamb liver photograph, resized to WebP.
 No supplier certifications, breed/origin claims, price or availability have been transferred to Bigfoot.
 
-Source verification ran the Python builder and link checker plus `node --check dist/script.js`. Browser checks covered all five pages at 1440, 1024, 632, 390 and 320px, including product keyboard selection, enquiry/company prefill, email review/copy, story chapter changes and mobile menu disclosure/Escape. The website prepares email drafts; actual email-client delivery is outside the site.
+The authoring checkout was verified with its Python builder and static checker plus `node --check dist/script.js`. Browser checks covered all five pages at 1440, 1024, 632, 390 and 320px, including product keyboard selection, enquiry/company prefill, email review/copy, story chapter changes and mobile menu disclosure/Escape. The website prepares email drafts; actual email-client delivery is outside the site.
+
+
+## SEO, readability and performance · 10 November 2026
+
+The canonical public site is https://randomer328.github.io/bigFoot/Meats/ . Each of its five HTML pages has a unique descriptive title/description, one H1, ordered heading levels, a clean canonical URL, index/follow directives, Open Graph/Twitter metadata, JSON-LD and internal company/product links. Query selections share the clean page canonical. Structured data describes the two separate organizations, the website, each page, breadcrumbs and product enquiry categories; it does not claim inventory, prices, ratings or certifications.
+
+Public product descriptions and formats are generated in visible HTML rather than existing only in JavaScript data. JavaScript enhances selection, navigation and chapter photography; semantic text and links are present in the source. Forms retain labels, native validation, reviewed email drafting and disabled native submission until handlers are ready.
+
+Sitemap: https://randomer328.github.io/bigFoot/Meats/sitemap.xml
+
+**Robots scope:** robots.txt is included for standalone hosting, but the file at `/bigFoot/Meats/robots.txt` is not an origin-level robots policy on GitHub Pages. Only `https://randomer328.github.io/robots.txt` controls that origin, which this project cannot change. Each public HTML page therefore supplies the authoritative page-level `index,follow,max-image-preview:large` metadata. The sitemap URL above is ready for submission in Search Console. No Search Console submission or search-index inclusion is claimed.
+
+Body copy is approximately 18px on phones and 19px on desktop, with increased line spacing; navigation, labels, footnotes and forms have also been enlarged. Scrolling chapters have distinct background colours, strong borders and numbered labels. Main content is centred with a 1360px maximum container, using 1440 x 900 as the primary reference.
+
+Performance improvements include self-hosted WOFF2 fonts with `font-display: swap`, two small critical font preloads, content-versioned CSS/JS, a smaller logo, responsive 480/960px WebP image variants, declared image dimensions, lazy loading below the fold and a high-priority responsive hero. Font licenses are bundled under `assets/fonts/`. The 1200 x 630 JPEG social image is an illustrative crop of the existing farm stock photo.
+
+Validation in the authoring checkout: `python verify.py`, `python verify_seo.py`, `node --check dist/script.js`; browser checks at 390, 632, 768, 840, 1100, 1440 and 1920px for all pages, plus interactive keyboard/forms/image checks. No Lighthouse score or guaranteed indexing/rank is claimed.
+
+Implementation guidance: Google Search Central canonical URLs, sitemap construction and Organization structured data documentation.
