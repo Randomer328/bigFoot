@@ -1,8 +1,8 @@
 # Bigfoot Meats & Bigfoot Australia
 
-A shared wholesale website with five pages: home, Australia, Singapore, product range and wholesale enquiries. Built as static HTML/CSS/JavaScript, with no runtime packages.
+A warm editorial wholesale website with five pages: home, Australia, Singapore, product range and wholesale enquiries. Built as static HTML/CSS/JavaScript, with no runtime packages.
 
-The files in this directory are ready to serve, with no build step. Run `python -m http.server 8773` from this directory for a local preview. The repository publishing script copies this directory to `dist/Meats/` for GitHub Pages.
+The files in this directory are ready to serve without a build step. Run `python -m http.server 8773` in this directory for a preview. The repository publisher copies these files to `dist/Meats/`.
 
 ## Content and assets
 
@@ -24,3 +24,21 @@ The form validates locally, presents a review dialog, then opens a mailto draft 
 ## Isolation
 
 This is a separate project. The existing main, India and Medicare sites are untouched.
+
+
+## Farm-to-market release · 10 November 2026
+
+The accepted ivory, olive and burgundy design is now used throughout the website. Bigfoot Meats (Singapore) and Bigfoot Australia remain separate companies; both offer wholesale supply, imports and exports. Australia also owns farms.
+
+- Cinematic CSS panorama with a visible pause/resume control and offscreen suspension.
+- Product explorer changes photographs, product formats and enquiry links together. Arrow keys, Home/End and browser history work; selection can be linked using `?range=mutton`.
+- Scrolling farming story changes an anchored image through land, livestock, product and market chapters; each chapter has a direct link.
+- Reduced-motion preferences turn off the panorama, entrance effects and transitions. Mobile navigation has Escape/focus return and a no-JavaScript fallback.
+- Company contact selection uses the actual company names while retaining existing `region=Singapore` and `region=Australia` links.
+
+New illustrative product photographs:
+- Mutton: https://breadandbutterexpress.com/products/imported-mutton-per-kg — resized to WebP from the retailer’s product photograph.
+- Offal: https://stemplecreek.com/collections/offal — illustrative lamb liver photograph, resized to WebP.
+No supplier certifications, breed/origin claims, price or availability have been transferred to Bigfoot.
+
+Source verification ran the Python builder and link checker plus `node --check dist/script.js`. Browser checks covered all five pages at 1440, 1024, 632, 390 and 320px, including product keyboard selection, enquiry/company prefill, email review/copy, story chapter changes and mobile menu disclosure/Escape. The website prepares email drafts; actual email-client delivery is outside the site.
