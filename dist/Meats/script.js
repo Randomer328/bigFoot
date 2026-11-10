@@ -195,21 +195,6 @@ if (rangeTabs.length) {
   selectProductFromUrl();
 }
 
-// The farm panorama has a persistent pause control; offscreen animation stops too.
-const hero = document.querySelector('.hero');
-const motionToggle = document.querySelector('[data-motion-toggle]');
-if (hero && motionToggle) {
-  motionToggle.addEventListener('click', () => {
-    const paused = hero.classList.toggle('motion-paused');
-    motionToggle.setAttribute('aria-pressed', String(paused));
-    motionToggle.textContent = paused ? 'Resume motion ▷' : 'Pause motion Ⅱ';
-  });
-  const observer = new IntersectionObserver(entries => {
-    hero.classList.toggle('hero-offscreen', !entries[0].isIntersecting);
-  });
-  observer.observe(hero);
-}
-
 // Scroll chapters select one anchored photograph, without changing reading order.
 const chapters = [...document.querySelectorAll('[data-chapter]')];
 const scenes = [...document.querySelectorAll('[data-scene]')];

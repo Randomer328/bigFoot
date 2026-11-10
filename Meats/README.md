@@ -61,3 +61,6 @@ Performance improvements include self-hosted WOFF2 fonts with `font-display: swa
 Validation in the authoring checkout: `python verify.py`, `python verify_seo.py`, `node --check dist/script.js`; browser checks at 390, 632, 768, 840, 1100, 1440 and 1920px for all pages, plus interactive keyboard/forms/image checks. No Lighthouse score or guaranteed indexing/rank is claimed.
 
 Implementation guidance: Google Search Central canonical URLs, sitemap construction and Organization structured data documentation.
+
+
+The top banner image and heading are now static; its pause/resume control has been removed.
