@@ -16,7 +16,7 @@
  function announce(message){const el=document.getElementById('cart-status');el.textContent=message;clearTimeout(toastTimer);toastTimer=setTimeout(()=>{el.textContent='';},4500);}
  function save(){try{localStorage.setItem(key,JSON.stringify(cart));}catch{storageAvailable=false;}render();}
  function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
- function sprite(p){const s=el('span','cut-sprite');s.style.setProperty('--sprite-x',`${p.cell%3*50}%`);s.style.setProperty('--sprite-y',`${Math.floor(p.cell/3)*100}%`);s.setAttribute('aria-hidden','true');return s;}
+ function sprite(p){const s=el('span','cut-sprite');s.style.setProperty('--sprite-x',`${p.cell%3*50}%`);s.style.setProperty('--sprite-y',`${Math.floor(p.cell/3)*50}%`);s.style.setProperty('--cut-atlas',`url(assets/${p.atlas})`);s.setAttribute('aria-hidden','true');return s;}
  function show(id){const dialog=document.getElementById(id);if(dialog&&!dialog.open)dialog.showModal();}
  document.querySelectorAll('[data-close-dialog]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
  document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));

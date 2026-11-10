@@ -16,3 +16,6 @@
 Generated with OpenAI image generation on 10 November 2026. Six illustrative product cutouts: lamb rack, leg, shoulder, diced mutton, mince and liver. Original: assets-source/freezer-cuts.png. Production: dist/assets/freezer-cuts.webp. These are illustrative and do not imply stock or product specifications.
 
 Prompt: Create a square 3 by 2 transparent sprite atlas. Each cell is an isolated, clean, neatly trimmed raw meat product hanging vertically from a polished stainless S hook, photographed with cool food photography lighting. Top row: lamb rack, lamb leg, lamb shoulder. Bottom row: diced mutton in a vacuum pouch, lamb mince in a pouch, lamb liver in a pouch. Generous transparent margins, no overlaps or cropped hooks, consistent alignment. No labels, text, background, people, heads, blood or gore. A product asset, not a website mockup.
+
+## Six-rack range update
+Generated with built-in OpenAI image generation on 10 November 2026. Two 3-by-3 transparent atlases, 18 illustrative products: beef ribeye/striploin/brisket; whole chicken/breast/thighs; lamb rack/leg/shoulder; mutton leg/shoulder/diced; goat leg/shoulder/curry cut; pork belly/ribs/shoulder. Final assets: dist/assets/meat-rack-1.webp and meat-rack-2.webp. Original PNGs and exact prompts: assets-source/meat-rack-1.png, meat-rack-2.png and rack-prompts.json.
