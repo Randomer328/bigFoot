@@ -25,3 +25,11 @@ Asset provenance and the generation prompt are in ASSET-SOURCES.md. The generate
 One rack per meat type. Touch or horizontal wheel scrolling updates the selected cut after scrolling settles. Previous/next controls, ArrowLeft/ArrowRight, Home and End select and centre a hanger; the selected hanger comes forward and its details update alongside. Choose quantity opens the existing request dialog. No rail moves automatically. Reduced-motion settings remove transitions and smooth scrolling. The normal catalogue remains available.
 
 New checks: `python test_racks.py` validates all six racks, 18 cuts, controls, assets and dialogs.
+
+## Anchored hanging motion
+
+The rack now uses a time-stepped damped pendulum with independent pitch, swing and twist per product. A fixed metal loop sits on the rail; a connected lower assembly carries the retained photo hook stem, cut and tag together. Motion uses real state/velocity integration rather than CSS hover transitions. Pointer entry/movement, keyboard focus and touch pulses provide bounded impulses; assemblies settle after release. Visual mass is animation tuning, not a product weight or specification. Reduced motion suppresses swinging, hidden tabs cancel animation and offscreen racks settle without running a continuous animation loop.
+
+The existing photographs are reused as single assets. These are image-based assemblies with perspective, not scanned or fully modelled 3D meat. No WordPress, colour editor or artwork tools were added; the user explicitly excluded those extra requirements from their Reddit reference. Hook attachment landmarks are stored in catalogue.json and are measured from the original alpha channel without changing the images.
+
+Run `node test_physics.cjs` for inertia, settling, mass response and bounds. The browser hook-joint check measured less than 0.001px error across seven widths.
