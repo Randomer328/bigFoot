@@ -4,6 +4,7 @@ A static five-page meat-selection store. The homepage contains **one physical ra
 
 ## Shopping interaction
 
+- Hook spacing is calculated from the number of cuts and the viewport. Crowded racks keep a minimum gap and show separate cut-browsing controls.
 - One horizontal drag/swipe changes the meat type, with cyclic previous/next controls and accessible category dots.
 - Horizontal trackpad input changes type once per gesture. Vertical scrolling remains native. ArrowLeft/ArrowRight, Home and End work from the rack region.
 - Click or tap a cut to bring it forward and open its information. Other hangers recede. The information panel includes meat/cut details, cooking caption, pending pricing and quantity action.

@@ -7,3 +7,6 @@
 @media(prefers-reduced-motion:reduce){.single-rack .rack-item,.category-dot>span{transition:none}}
 
 .single-intro>p{font-size:18px}
+
+.single-rack .rack-panel .rack-item:not(:last-child){margin-right:calc(var(--hook-pitch,135px) - 260px)}.cut-controls{display:flex;justify-content:center;align-items:center;gap:12px;font-size:13px;color:var(--muted);padding:0 12px 10px}.cut-controls button{min-width:44px;min-height:44px;border:1px solid #a9bdc8;background:transparent;border-radius:50%;font-size:23px;line-height:1}.cut-controls button:hover{background:#dce8ee}.cut-controls button[aria-disabled=true]{opacity:.45;cursor:default}.single-rack .rack-display:has(.cut-controls:not([hidden])) .rack-frame{bottom:91px}
+@media(max-width:760px){.single-rack .rack-display:has(.cut-controls:not([hidden])) .rack-frame{bottom:99px}}
