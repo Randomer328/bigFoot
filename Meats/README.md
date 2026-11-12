@@ -1,6 +1,6 @@
 # Bigfoot Meats Singapore
 
-A static five-page meat-selection store. The homepage contains **one physical rack**, showing one meat type at a time: beef, chicken, lamb, mutton, goat or pork. There are 18 illustrative cuts, three per type.
+A static five-page meat-selection store. The homepage contains **one physical rack**, showing one meat type at a time: beef, chicken, lamb, mutton or goat. There are 15 illustrative cuts, three per type.
 
 ## Shopping interaction
 
