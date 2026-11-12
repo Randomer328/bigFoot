@@ -29,4 +29,4 @@ The static HTML has unique metadata, canonicals, social tags, logical headings, 
 
 ## Separate Australia company
 
-Bigfoot Australia remains its own farm and whole-carcass website at ../Australia/. Legacy australia.html redirects there. This update does not change Australia, main, India or Medicare.
+Bigfoot Meats Australia remains its own farm and whole-carcass website at ../Australia/. Legacy australia.html redirects there. This update does not change Australia, main, India or Medicare.

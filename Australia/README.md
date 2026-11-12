@@ -1,4 +1,4 @@
-# Bigfoot Australia
+# Bigfoot Meats Australia
 
 Separate company website for owned farms, sheep and goat rearing, carcass supply, import and export enquiries. Built as four static pages with no runtime dependencies.
 
