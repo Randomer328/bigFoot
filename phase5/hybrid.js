@@ -150,9 +150,21 @@
 
 // A single selected capability, with shareable URLs and browser-history support.
 (() => {
- const menus=[...document.querySelectorAll('.nav-services')];
- document.addEventListener('click',event=>menus.forEach(menu=>{if(!menu.contains(event.target) || event.target.closest('a'))menu.open=false;}));
- document.addEventListener('keydown',event=>{if(event.key==='Escape')menus.forEach(menu=>{if(menu.open){menu.open=false;menu.querySelector('summary').focus();}});});
+ const menus=[...document.querySelectorAll('.site-header .nav-services')];
+ document.addEventListener('click',event=>menus.forEach(menu=>{
+  if(!menu.contains(event.target) || event.target.closest('a'))menu.open=false;
+ }));
+ menus.forEach(menu=>menu.addEventListener('toggle',()=>{
+  if(!menu.open)menu.querySelectorAll('.nav-flyout').forEach(flyout=>{flyout.open=false;});
+ }));
+ document.querySelector('.site-header').addEventListener('keydown',event=>{
+  if(event.key!=='Escape')return;
+  const menu=event.target.closest('.nav-flyout[open]') || event.target.closest('.nav-services[open]');
+  if(!menu)return;
+  event.stopPropagation();
+  menu.open=false;
+  menu.querySelector('summary').focus();
+ });
  const choices=[...document.querySelectorAll('[data-solution-choice]')];
  const panels=[...document.querySelectorAll('[data-solution-panel]')];
  if(!choices.length)return;

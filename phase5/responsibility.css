@@ -81,3 +81,51 @@
 /* Approved photographs from the corporate event collection. */
 .corporate-photo{margin:0;min-width:0}.corporate-photo img{display:block;width:100%;height:auto;border-radius:18px}.corporate-photo figcaption{font-size:12px;line-height:1.6;color:#536575;margin-top:12px}.corporate-visit{background:#f2ede4}.corporate-wellbeing{background:#e3efdf}.corporate-recognition{background:#e9edf7}.corporate-panorama img{max-height:560px;object-fit:contain;background:#d3e3d4}.corporate-recruitment{max-width:880px;margin:30px 0}.community-hero .community-portrait{height:auto;width:100%;max-width:650px;aspect-ratio:16/10;transform:none;border-radius:20px}.community-hero .community-portrait img{object-fit:cover;object-position:center}.community-hero .community-portrait>span{bottom:18px;left:18px;font-size:18px;padding:12px 18px}.sustain-hero-visual>img{object-position:45% center}
 @media(max-width:800px){.corporate-visit .topic-split{gap:30px}.corporate-recognition .topic-split{gap:30px}.corporate-photo img{border-radius:12px}.community-hero .community-portrait{width:100%;margin:10px 0;max-width:none}.community-hero .community-portrait>span{font-size:14px;bottom:10px;left:10px}.corporate-recruitment{margin:22px 0}}
+
+/* Keep dropdowns in the viewport and expose the regional sites on touch. */
+.site-header .nav-topic[open] > summary{color:#b72528}
+.site-header .nav-flyout{position:relative}
+.site-header .nav-flyout > summary{
+  justify-content:space-between;
+  padding:13px 14px;
+  border-radius:6px;
+  color:#102c4c;
+  font-size:14px;
+}
+.site-header .nav-flyout > summary:hover,
+.site-header .nav-flyout[open] > summary{background:#e8f2fa;color:#b72528}
+.site-header .nav-flyout > summary .nav-chevron{transform:rotate(-45deg)}
+.site-header .nav-flyout[open] > summary .nav-chevron{transform:rotate(45deg)}
+.site-header .nav-flyout-menu{padding-inline-start:14px}
+.site-header .esg-navigation-menu{max-width:calc(100vw - 40px)}
+.esg-tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.esg-tabs a{min-width:0}
+.esg-tabs a > span{overflow-wrap:anywhere}
+.esg-panel-heading{grid-template-columns:auto minmax(0,1fr)}
+.esg-panel-heading h3{overflow-wrap:anywhere}
+.group-service-card .hy-business-copy{height:100%;min-height:240px}
+.v3-business-track .group-service-card h3{min-height:0;overflow-wrap:anywhere}
+#bigfoot-telco{scroll-margin-top:110px}
+
+@media(min-width:1201px){
+  .site-header .esg-navigation-menu{left:auto;right:0}
+  .site-header .group-navigation > .nav-services-menu{overflow:visible}
+  .site-header .nav-flyout-menu{
+    position:absolute;
+    z-index:1;
+    top:0;
+    left:100%;
+    width:195px;
+    padding:8px;
+    border:1px solid #d4e1ec;
+    border-radius:8px;
+    background:#fff;
+    box-shadow:0 16px 35px #102c4c25;
+  }
+}
+@media(max-width:1200px){
+  .site-header .esg-navigation-menu{max-width:100%}
+}
+@media(max-width:360px){
+  .esg-panel-heading h3{font-size:29px}
+}
