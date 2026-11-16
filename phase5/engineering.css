@@ -45,14 +45,22 @@
 .eng-truck-image{display:block;width:100%;height:100%}
 .eng-shade{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:linear-gradient(90deg,var(--eng-stage) 0%,#021331f0 26%,#021331b0 40%,#02133100 54%),linear-gradient(0deg,#02133199 0%,#02133100 30%)}
-.eng-pin{position:absolute;left:var(--x);top:var(--y);z-index:2;transform:translate(-50%,-50%);width:44px;height:44px;display:grid;place-items:center;padding:0;border:0;background:none;cursor:pointer}
-.eng-pin>span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#ffffffe6;color:var(--eng-navy);font:800 10px/1 Figtree,Arial,sans-serif;box-shadow:0 2px 8px #0006;transition:transform .25s,opacity .25s}
-.eng-pin:hover>span{transform:scale(1.15)}
-.eng-pin.is-active>span{opacity:0}
+.eng-pin{position:absolute;left:var(--x);top:var(--y);z-index:2;transform:translate(-18px,-50%);display:flex;align-items:center;height:36px;padding:0;border:0;border-radius:999px;background:#fff;color:var(--eng-navy);font-family:Figtree,Arial,sans-serif;cursor:pointer;box-shadow:0 0 0 5px #ffffff2e,0 6px 18px #0008;transition:box-shadow .25s,opacity .3s}
+.eng-pin-left{flex-direction:row-reverse;transform:translate(calc(-100% + 18px),-50%)}
+.eng-pin:before{content:'';position:absolute;top:0;width:36px;height:36px;border-radius:50%;border:2px solid var(--eng-red-soft);animation:eng-halo 2.8s ease-out infinite;pointer-events:none}
+.eng-pin:not(.eng-pin-left):before{left:0}.eng-pin-left:before{right:0}
+.eng-pin>span{display:grid;place-items:center;flex:none;width:36px;height:36px;font:800 12px/1 Figtree,Arial,sans-serif;letter-spacing:.02em}
+.eng-pin>b{max-width:0;overflow:hidden;white-space:nowrap;font-size:13px;font-weight:700;opacity:0;transition:max-width .35s cubic-bezier(.4,0,.2,1),padding .35s cubic-bezier(.4,0,.2,1),opacity .2s}
+.eng-pin:hover,.eng-pin:focus-visible{z-index:4;box-shadow:0 0 0 6px #ffffff40,0 10px 26px #0009}
+.eng-pin:hover>b,.eng-pin:focus-visible>b{max-width:160px;padding-right:16px;opacity:1}
+.eng-pin-left:hover>b,.eng-pin-left:focus-visible>b{padding-right:0;padding-left:16px}
+.eng-pin:hover:before{animation:none;opacity:0}
+.eng-pin.is-active{opacity:0;pointer-events:none}
+@keyframes eng-halo{0%{transform:scale(1);opacity:.9}70%,100%{transform:scale(1.7);opacity:0}}
 .eng-focus{position:absolute;left:var(--x);top:var(--y);z-index:3;pointer-events:none;transition:left .7s cubic-bezier(.65,0,.35,1),top .7s cubic-bezier(.65,0,.35,1)}
 .eng-focus>i{position:absolute;left:0;top:0;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:var(--eng-red);box-shadow:0 0 0 6px #ba252d55,0 0 0 1px #fff inset}
 .eng-focus>i:after{content:'';position:absolute;inset:-16px;border-radius:50%;border:1.5px solid #ffffffb0;animation:eng-pulse 2.4s cubic-bezier(.2,.6,.3,1) infinite}
-.eng-focus>b{position:absolute;left:20px;bottom:14px;white-space:nowrap;padding:7px 12px;border-radius:3px;background:#fff;color:var(--eng-navy);font:700 13px/1.2 Figtree,Arial,sans-serif;box-shadow:0 6px 20px #0005}
+.eng-focus>b{position:absolute;left:20px;bottom:14px;white-space:nowrap;padding:8px 14px;border-radius:999px;background:var(--eng-red);color:#fff;font:700 13px/1.2 Figtree,Arial,sans-serif;box-shadow:0 6px 20px #0005}
 @keyframes eng-pulse{0%{transform:scale(.45);opacity:1}100%{transform:scale(1.25);opacity:0}}
 
 .eng-panels{position:absolute;z-index:4;left:0;top:0;bottom:0;width:min(46%,560px);padding:clamp(32px,4vw,56px);display:grid;align-items:center}
@@ -222,12 +230,11 @@
   .eng-panels{padding:4px 20px 28px}
   .eng-tabs button{padding:16px 14px 18px}
   .eng-tabs button>b{font-size:15px}.eng-tabs button>small{display:none}
-  .eng-pin>span{width:22px;height:22px;font-size:9px}
-  .eng-section-head h2,.eng-rental h2{font-size:36px}
+  .eng-pin{height:30px;transform:translate(-15px,-50%)}.eng-pin-left{transform:translate(calc(-100% + 15px),-50%)}.eng-pin:before,.eng-pin>span{width:30px;height:30px}.eng-pin>span{font-size:10px}  .eng-section-head h2,.eng-rental h2{font-size:36px}
   .eng-service-list>.eng-text-link{margin-left:0}
   .eng-rental-copy dl>div{grid-template-columns:90px 1fr}
 }
 @media(prefers-reduced-motion:reduce){
-  .eng-focus,.eng-explorer.is-ready .eng-panels article,.eng-pin>span,.eng-btn>span{transition:none!important}
-  .eng-focus>i:after,.eng-process.is-ready [data-route-panel]{animation:none}
+  .eng-focus,.eng-explorer.is-ready .eng-panels article,.eng-pin,.eng-pin>b,.eng-btn>span{transition:none!important}
+  .eng-focus>i:after,.eng-pin:before,.eng-process.is-ready [data-route-panel]{animation:none}
 }
