@@ -21,8 +21,10 @@
 .d2-grid .d2-cold h3{font-size:clamp(30px,2.6vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.02}
 .d2-grid p.d2-text{font-size:14.5px;line-height:1.5;color:#b8c8d5;margin:0}
 .d2-cold p.d2-text{font-size:16px;color:#d8e8f4;max-width:430px}
-.d2-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.d2-chips span{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid #9ed8ff55;color:#dff2ff;background:#9ed8ff12}
+.d2-spec{margin:22px 0 0;max-width:430px;border-top:1px solid #9ed8ff40}
+.d2-spec div{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid #ffffff17}
+.d2-spec dt{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9ed8ff}
+.d2-spec dd{margin:0;font-size:14.5px;font-weight:600;line-height:1.4;color:#e6f2fb;font-variant-numeric:tabular-nums}
 .d2-go{display:inline-flex;gap:10px;margin-top:18px;font-size:14px;font-weight:700;color:#fff}
 .d2-go b{transition:transform .25s}
 .d2-grid a:hover .d2-go b{transform:translateX(4px)}
