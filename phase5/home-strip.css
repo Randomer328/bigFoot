@@ -1,0 +1,62 @@
+/* Home page only: temperature-rail service strip (strip design 2) + shipping-container contact block (bigfoot-redesign CTA). */
+
+/* ---------- Temperature rail strip ---------- */
+.d2{position:relative;background:#07182b;color:#fff;padding:26px 0 56px}
+.d2-rail{position:relative;height:5px;border-radius:5px;margin-top:10px;background:linear-gradient(90deg,#7fd3ff 0%,#5aa9e0 30%,#3b5f86 52%,#c98a5a 82%,#e0a26a 100%)}
+.d2-legend{display:flex;justify-content:space-between;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.d2-legend span:first-child{color:#9ed8ff}
+.d2-legend span:last-child{color:#e8b386}
+.d2-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr}
+.d2-grid a{position:relative;display:block;padding:36px 30px 6px;border-left:1px solid #ffffff1c;color:#fff;text-decoration:none;transition:background .3s}
+.d2-grid a:first-child{border-left:0;padding-left:0}
+.d2-grid a::before{content:"";position:absolute;top:-8px;left:30px;width:11px;height:11px;border-radius:50%;background:#07182b;border:2px solid #ffffff80;transform:translate(-50%,0)}
+.d2-grid a:first-child::before{left:0;transform:none}
+.d2-grid a:hover{background:#ffffff08}
+.d2-grid a:hover::before{border-color:#fff;background:#fff}
+.d2-grid a.d2-cold{background:linear-gradient(180deg,#5aa9e02e,transparent 75%);padding-left:30px;padding-right:40px;border-radius:0 0 18px 18px}
+.d2-grid a.d2-cold::before{left:30px;width:17px;height:17px;top:-11px;background:#9ed8ff;border-color:#fff;box-shadow:0 0 0 6px #7fd3ff33,0 0 26px #7fd3ff}
+.d2-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8ea6b9;margin:0}
+.d2-cold .d2-label{color:#9ed8ff}
+.d2-grid h3{font-size:20px;font-weight:700;letter-spacing:-.015em;line-height:1.2;margin:10px 0 8px;color:#fff}
+.d2-grid .d2-cold h3{font-size:clamp(30px,2.6vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1.02}
+.d2-grid p.d2-text{font-size:14.5px;line-height:1.5;color:#b8c8d5;margin:0}
+.d2-cold p.d2-text{font-size:16px;color:#d8e8f4;max-width:430px}
+.d2-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.d2-chips span{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid #9ed8ff55;color:#dff2ff;background:#9ed8ff12}
+.d2-go{display:inline-flex;gap:10px;margin-top:18px;font-size:14px;font-weight:700;color:#fff}
+.d2-go b{transition:transform .25s}
+.d2-grid a:hover .d2-go b{transform:translateX(4px)}
+.d2-cold .d2-go{padding:11px 20px;border-radius:999px;background:#ba252d;margin-top:24px}
+.d2-cold:hover .d2-go{background:#96202a}
+@media (max-width:980px){
+  .d2-grid{grid-template-columns:1fr 1fr}
+  .d2-grid a,.d2-grid a.d2-cold{border-left:0;padding-left:0;padding-right:20px}
+  .d2-grid a.d2-cold{grid-column:1/-1;padding-left:20px}
+  .d2-grid a::before,.d2-grid a.d2-cold::before{left:0;transform:none}
+}
+@media (max-width:560px){.d2-grid{grid-template-columns:1fr}.d2-grid a{padding-top:30px}}
+
+/* ---------- Shipping-container contact block ---------- */
+.page-index #connect.ctr-cta{background:#ba252d;color:#fff;padding:clamp(64px,8vw,110px) 0;position:relative;isolation:isolate;overflow:hidden}
+.page-index #connect.ctr-cta::before{ /* corrugated container wall */
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.14;pointer-events:none;
+  background:repeating-linear-gradient(90deg,transparent 0 22px,rgba(0,0,0,.6) 22px 26px,transparent 26px 34px,rgba(255,255,255,.5) 34px 36px)
+}
+.page-index #connect.ctr-cta::after{content:none}
+.page-index #connect.ctr-cta>.container{display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(32px,6vw,96px);align-items:end}
+.page-index #connect.ctr-cta .hy-kicker{color:#fff}
+.page-index #connect.ctr-cta .hy-kicker:before{background:#fff}
+.page-index #connect.ctr-cta h2{font-size:clamp(44px,5vw,80px);font-weight:800;line-height:.98;letter-spacing:-.045em;max-width:11ch;margin:18px 0 0;color:#fff}
+.page-index #connect.ctr-cta .ctr-lede{font-size:18px;line-height:1.55;color:#fff;opacity:.92;max-width:520px;margin-top:22px}
+.page-index #connect.ctr-cta .hy-actions{margin-top:28px}
+.page-index #connect.ctr-cta .button{background:#07182b;border-color:#07182b;color:#fff}
+.page-index #connect.ctr-cta .button:hover{background:#102d47;border-color:#102d47}
+.page-index #connect.ctr-cta .button.outline{background:transparent;border-color:#ffffffa6;color:#fff}
+.page-index #connect.ctr-cta .button.outline:hover{background:#ffffff1f}
+.ctr-lines{border-top:2px solid #fff}
+.ctr-lines a,.ctr-lines div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid rgba(255,253,248,.35);color:#fff;text-decoration:none;align-items:baseline}
+.ctr-lines span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.78}
+.ctr-lines strong{font-size:clamp(1.1rem,1.8vw,1.5rem);font-weight:600;line-height:1.3}
+.ctr-lines a:hover strong{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:900px){.page-index #connect.ctr-cta>.container{grid-template-columns:1fr}}
+@media (max-width:560px){.ctr-lines a,.ctr-lines div{grid-template-columns:1fr;gap:4px}}
