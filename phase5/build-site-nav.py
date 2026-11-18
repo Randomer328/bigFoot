@@ -91,7 +91,7 @@ def build(page):
                   ''.join(a(h, e(n)) for n, h, _ in SERVICES), [h for _, h, _ in SERVICES])
 
     who = 'about-us.html' if page == 'about-us.html' else 'index.html#who-we-are'
-    return (a(who, 'Who We Are') + a('solutions.html', 'What We Do') + group + esg + a('people.html', 'Career') + services +
+    return (a(who, 'Who We Are') + a('solutions.html', 'What We Do') + services + group + esg + a('people.html', 'Career') +
             '<a class="button nav-contact quote-shine" href="contact.html?topic=Logistics">Request a Quote<span aria-hidden="true">↗</span></a>')
 
 
