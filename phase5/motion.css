@@ -1,0 +1,58 @@
+/* Site-wide motion layer: subtle fades and rises, per the brand guide.
+   Loaded on every phase5 page (injected by build-site-nav.py). Everything here
+   is switched off for people who ask for reduced motion. */
+:root{--mo-ease:cubic-bezier(.2,.7,.2,1);--mo-rise:10px}
+
+/* 1. Hover and focus: colour changes ease instead of snapping.
+   :where() keeps specificity at zero, so any component that already sets its own transition wins. */
+:where(a,button,summary,[role=tab],input,select,textarea){transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .25s ease,opacity .2s ease,text-decoration-color .2s ease}
+
+/* 2. Panels revealed by tabs and selectors (added by motion.js when [hidden] is removed) */
+.mo-enter{animation:mo-rise .42s var(--mo-ease) both}
+.mo-enter-fade{animation:mo-fade .35s ease both}
+@keyframes mo-rise{from{opacity:0;transform:translateY(var(--mo-rise))}}
+@keyframes mo-fade{from{opacity:0}}
+
+/* 3. Scroll reveal for sections and card groups (tagged by motion.js) */
+.mo-pending{opacity:0}
+.mo-in{animation:mo-rise .6s var(--mo-ease) both;animation-delay:var(--mo-delay,0s)}
+
+/* 4. Accordions: content rises in; height animates where the browser supports it */
+main details[open]>:not(summary){animation:mo-rise .35s var(--mo-ease)}
+main details>summary{transition:color .2s ease}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  main details::details-content{block-size:0;overflow:clip;transition:block-size .38s var(--mo-ease),content-visibility .38s allow-discrete}
+  main details[open]::details-content{block-size:auto}
+}
+
+/* 5. Dialogs and their backdrop fade and rise, both opening and closing */
+dialog{opacity:0;transform:translateY(14px) scale(.985);transition:opacity .28s ease,transform .32s var(--mo-ease),overlay .32s allow-discrete,display .32s allow-discrete}
+dialog[open]{opacity:1;transform:none}
+dialog::backdrop{opacity:0;transition:opacity .3s ease,overlay .3s allow-discrete,display .3s allow-discrete}
+dialog[open]::backdrop{opacity:1}
+@starting-style{
+  dialog[open]{opacity:0;transform:translateY(14px) scale(.985)}
+  dialog[open]::backdrop{opacity:0}
+}
+
+/* 6. Mobile drawer slides down; hamburger turns into a close icon */
+.menu-toggle span{transition:transform .3s var(--mo-ease),opacity .2s ease}
+.menu-toggle[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}
+.menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+@media (max-width:1200px){
+  .js .site-header nav{opacity:0;transform:translateY(-8px);transition:opacity .25s ease,transform .32s var(--mo-ease),display .32s allow-discrete}
+  .js .site-header nav.is-open{opacity:1;transform:none}
+  @starting-style{.js .site-header nav.is-open{opacity:0;transform:translateY(-8px)}}
+}
+
+/* 7. Photos inside links that already scale on hover ease into it instead of jumping */
+:where(a) > :where(img){transition:transform .7s var(--mo-ease)}
+
+@media (prefers-reduced-motion:reduce){
+  .mo-enter,.mo-enter-fade,.mo-in{animation:none}
+  .mo-pending{opacity:1}
+  main details[open]>:not(summary){animation:none}
+  main details::details-content{transition:none}
+  dialog,dialog::backdrop,.js .site-header nav,.menu-toggle span{transition:none}
+}

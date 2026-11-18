@@ -2,19 +2,19 @@
 
 Edit COUNTRIES / ESG / SERVICES below, then run:  python phase5/build-site-nav.py
 Only the contents of <nav id="navigation"> are replaced; the logo and mobile toggle stay as they are.
-It also makes sure each page links site-nav.css and site-nav.js.
+It also makes sure each page links site-nav.css/js and the site-wide motion.css/js.
 """
 import html, pathlib, re
 
 HERE = pathlib.Path(__file__).resolve().parent
 e = html.escape
-CSS_TAG = '<link rel="stylesheet" href="site-nav.css?v=1">'
-JS_TAG = '<script src="site-nav.js?v=1" defer></script>'
+CSS_TAG = '<link rel="stylesheet" href="site-nav.css?v=2"><link rel="stylesheet" href="motion.css?v=1">'
+JS_TAG = '<script src="site-nav.js?v=2" defer></script><script src="motion.js?v=1" defer></script>'
 CHEV = '<svg class="bf-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
 ARROW = '<span class="bf-arrow" aria-hidden="true">→</span>'
 
 COUNTRIES = [
-    dict(code='SG', name='Singapore', site='index.html', img='assets/hero-port-fuso-orange-reefers-v11.png', cos=[
+    dict(code='SG', name='Singapore', site='index.html', img='assets/menu/sg-fleet.webp', cos=[
         ('Bigfoot Logistic', 'index.html'),
         ('Bigfoot Shipping', 'bigfoot-shipping.html'),
         ('Bigfoot Meats', '../Meats/index.html'),
@@ -24,10 +24,10 @@ COUNTRIES = [
         ('LNCST', 'lncst.html'),
         ('Bigfoot Worldwide', 'bigfoot-worldwide.html'),
         ('Bigfoot International', 'bigfoot-international.html')]),
-    dict(code='IN', name='India', site='../india/index.html', img='../india/assets/india-facility-exterior.webp', cos=[
+    dict(code='IN', name='India', site='../india/index.html', img='assets/menu/in-facility.webp', cos=[
         ('Bigfoot Cold Storage & Warehouse Services', '../india/index.html#cold-storage'),
         ('Bigfoot Logistics India', '../india/index.html#handling-delivery')]),
-    dict(code='AU', name='Australia', site='../Australia/index.html', img='../Australia/assets/farm-960.webp', cos=[
+    dict(code='AU', name='Australia', site='../Australia/index.html', img='assets/menu/au-farm.webp', cos=[
         ('Bigfoot Australia', '../Australia/index.html')]),
     dict(code='MY', name='Malaysia', site=None, img=None, cos=[('Bigfoot Malaysia', None)]),
 ]
@@ -80,7 +80,7 @@ def build(page):
     esg = dd('esg', 'ESG',
              f'<div class="bf-in"><div class="bf-intro"><span class="k">ESG</span><h3>Moving Forward Responsibly.</h3>'
              f'<p>How we look after the environment, our people and the way we run the business.</p><a href="esg.html">ESG overview {ARROW}</a></div>'
-             f'<div class="bf-esg">{cols}<div><img src="assets/solar-hq.jpg" alt="Solar panels on the Bigfoot headquarters roof" loading="lazy"></div></div></div>',
+             f'<div class="bf-esg">{cols}<div><img src="assets/menu/esg-solar.webp" alt="Solar panels on the Bigfoot headquarters roof" loading="lazy"></div></div></div>',
              mob, [x for r in ESG for x in (r[1], r[3])] + ['esg.html'])
 
     # ---- Services ----
@@ -103,10 +103,10 @@ def main():
         if not m:
             continue
         s = s[:m.start(2)] + build(f.name) + s[m.end(2):]
-        if 'site-nav.css' not in s:
-            s = s.replace('</head>', CSS_TAG + '</head>', 1)
-        if 'site-nav.js' not in s:
-            s = s.replace('</head>', JS_TAG + '</head>', 1)
+        # drop any previous copies of the shared tags, then add the current ones before </head>
+        s = re.sub(r'<link rel="stylesheet" href="(?:site-nav|motion)\.css[^"]*">', '', s)
+        s = re.sub(r'<script src="(?:site-nav|motion)\.js[^"]*" defer></script>', '', s)
+        s = s.replace('</head>', CSS_TAG + JS_TAG + '</head>', 1)
         f.write_text(s, encoding='utf8', newline='')
         done.append(f.name)
     print(f'updated {len(done)} pages:', ', '.join(done))
