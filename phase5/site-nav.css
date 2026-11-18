@@ -21,8 +21,18 @@ a:hover>.bf-arrow{transform:translateX(4px)}
   .bf-dd>.bf-dd-btn{height:100%}
   .bf-dd>.bf-dd-btn:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--red);transform:scaleX(0);transition:transform .25s}
   .bf-dd.open>.bf-dd-btn:after{transform:scaleX(1)}
-  .bf-panel{position:absolute;top:100%;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 24px 40px #102d4712;cursor:default}
-  .bf-dd.open>.bf-panel{animation:bfIn .2s ease}
+  /* panels stay in the layout and fade/slide, so closing is as smooth as opening */
+  .bf-panel,.bf-dd.open>.bf-panel{display:block}
+  .bf-panel{position:absolute;top:100%;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 24px 40px #102d4712;cursor:default;
+    visibility:hidden;opacity:0;transform:translateY(-8px);pointer-events:none;
+    transition:opacity .18s ease,transform .22s cubic-bezier(.2,.7,.2,1),visibility 0s linear .22s}
+  .bf-dd.open>.bf-panel{z-index:61;visibility:visible;opacity:1;transform:none;pointer-events:auto;
+    transition:opacity .24s ease,transform .32s cubic-bezier(.2,.7,.2,1),visibility 0s}
+  .bf-panel .bf-in>*{transition:opacity .3s ease .06s,transform .4s cubic-bezier(.2,.7,.2,1) .06s}
+  .bf-dd:not(.open)>.bf-panel .bf-in>*{opacity:0;transform:translateY(6px);transition-delay:0s}
+  .bf-cards>.bf-card{transition:opacity .3s ease,transform .4s cubic-bezier(.2,.7,.2,1)}
+  .bf-cards>.bf-card:nth-child(2){transition-delay:.04s}.bf-cards>.bf-card:nth-child(3){transition-delay:.08s}.bf-cards>.bf-card:nth-child(4){transition-delay:.12s}
+  .bf-dd:not(.open) .bf-cards>.bf-card{opacity:0;transform:translateY(8px);transition-delay:0s}
   .bf-in{max-width:1440px;margin:0 auto;padding:40px 60px 44px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px}
   .bf-intro .k{display:block;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
   .bf-intro h3{margin:10px 0 12px;font-size:28px;line-height:1.08;letter-spacing:-.035em;color:var(--navy)}
@@ -74,14 +84,18 @@ a:hover>.bf-arrow{transform:translateX(4px)}
   .bf-cards{grid-template-columns:1.8fr 1fr 1fr 1fr;gap:12px}
   .bf-card li a,.bf-card li span{font-size:13.5px;padding:6px 12px}
 }
-@keyframes bfIn{from{opacity:0;transform:translateY(-6px)}}
 
-/* Mobile drawer: accordion lists */
+/* Mobile drawer: accordion lists that slide open and closed */
 @media (max-width:1200px){
   .bf-dd{display:block;border-bottom:1px solid var(--line)}
   .bf-dd-btn{width:100%;justify-content:space-between;padding:14px 0;min-height:48px}
   .bf-d{display:none}
-  .bf-m{display:block;padding:0 0 12px}
+  .bf-panel,.bf-dd.open>.bf-panel{display:grid}
+  .bf-panel{grid-template-rows:0fr;transition:grid-template-rows .32s cubic-bezier(.2,.7,.2,1)}
+  .bf-dd.open>.bf-panel{grid-template-rows:1fr}
+  .bf-m{display:block;min-height:0;overflow:hidden;visibility:hidden;opacity:0;transition:opacity .2s ease,visibility 0s linear .32s}
+  .bf-dd.open .bf-m{visibility:visible;opacity:1;transition:opacity .3s ease .05s,visibility 0s}
+  .bf-m>:last-child{margin-bottom:12px}
   .bf-m a,.bf-m .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0 10px 14px;font-size:15px;border-left:2px solid var(--line)}
   .bf-m a:hover,.bf-m a[aria-current]{border-left-color:var(--red);color:var(--red)}
   .bf-m .sub{padding-left:28px;font-size:14px;color:var(--muted)}
@@ -90,4 +104,4 @@ a:hover>.bf-arrow{transform:translateX(4px)}
   .bf-m .country .bf-code{background:var(--navy);color:#fff}
   .bf-m .country em{margin-left:auto;font-style:normal;font-size:13px;color:var(--red);font-weight:700}
 }
-@media (prefers-reduced-motion:reduce){.bf-panel,.bf-chev,.bf-card-h img,.bf-dd-btn:after{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){.bf-panel,.bf-panel *,.bf-chev,.bf-card-h img,.bf-dd-btn:after{animation:none!important;transition:none!important}}
