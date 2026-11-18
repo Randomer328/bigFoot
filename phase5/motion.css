@@ -17,6 +17,11 @@
 .mo-pending{opacity:0}
 .mo-in{animation:mo-rise .6s var(--mo-ease) both;animation-delay:var(--mo-delay,0s)}
 
+/* 3b. Count-up stats (motion.js): reserve the final width so nothing beside the number shifts */
+/* !important: pages style "strong span" etc., and the counter must look exactly like the number it replaces */
+.mo-num{display:inline-block!important;white-space:nowrap!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-transform:none!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+.mo-sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+
 /* 4. Accordions: content rises in; height animates where the browser supports it */
 main details[open]>:not(summary){animation:mo-rise .35s var(--mo-ease)}
 main details>summary{transition:color .2s ease}

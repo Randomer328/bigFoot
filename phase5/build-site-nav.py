@@ -8,8 +8,8 @@ import html, pathlib, re
 
 HERE = pathlib.Path(__file__).resolve().parent
 e = html.escape
-CSS_TAG = '<link rel="stylesheet" href="site-nav.css?v=2"><link rel="stylesheet" href="motion.css?v=1">'
-JS_TAG = '<script src="site-nav.js?v=2" defer></script><script src="motion.js?v=1" defer></script>'
+CSS_TAG = '<link rel="stylesheet" href="site-nav.css?v=2"><link rel="stylesheet" href="motion.css?v=3">'
+JS_TAG = '<script src="site-nav.js?v=2" defer></script><script src="motion.js?v=3" defer></script>'
 CHEV = '<svg class="bf-chev" viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>'
 ARROW = '<span class="bf-arrow" aria-hidden="true">→</span>'
 

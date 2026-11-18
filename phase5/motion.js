@@ -101,10 +101,59 @@
     io.observe(el);
   });
 
+  /* ---------- 3. stat numbers count up from 0 when they come into view ---------- */
+  // Matches <strong>690</strong>, <strong>30<span>+</span></strong>, <strong>229.32<small>kWp</small></strong>, <strong>5 years</strong> …
+  var NUM = /^(\D*?)(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?(.*)$/s;
+  var counters = [];
+  main.querySelectorAll('strong').forEach(function (el) {
+    if (el.closest('.transport-journey, nav, [hidden], .site-header, .site-footer') || el.className) return;
+    var node = el.firstChild;
+    if (!node || node.nodeType !== 3 || el.textContent.trim().length > 14) return;
+    var m = node.nodeValue.match(NUM);
+    if (!m || m[1].trim().length > 3) return; // allow a short prefix such as "S$"
+    var target = parseFloat((m[2] + (m[3] || '')).replace(/,/g, ''));
+    if (!(target >= 2)) return; // nothing worth counting
+    var decimals = m[3] ? m[3].length - 1 : 0, commas = m[2].indexOf(',') > -1;
+    var fmt = function (v) {
+      var s = v.toFixed(decimals);
+      return commas ? Number(s).toLocaleString('en-SG', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }) : s;
+    };
+    // visible number is aria-hidden while it animates; screen readers get the real value
+    var num = document.createElement('span'), sr = document.createElement('span');
+    num.className = 'mo-num'; num.setAttribute('aria-hidden', 'true');
+    sr.className = 'mo-sr'; sr.textContent = m[1] + fmt(target);
+    num.textContent = m[1] + fmt(target);
+    node.nodeValue = m[4];
+    el.insertBefore(sr, node); el.insertBefore(num, sr);
+    num.style.minWidth = num.getBoundingClientRect().width + 'px'; // reserve final width: no layout jitter
+    num.textContent = m[1] + fmt(0);
+    counters.push({ el: el, num: num, prefix: m[1], target: target, fmt: fmt, dec: decimals });
+  });
+  function count(c) {
+    var start = performance.now(), dur = c.target > 999 ? 1400 : 1100;
+    (function tick(now) {
+      var t = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - t, 4); // fast start, gentle landing
+      var v = c.target * eased;
+      c.num.textContent = c.prefix + c.fmt(t < 1 && !c.dec ? Math.floor(v) : v);
+      if (t < 1) requestAnimationFrame(tick); else { c.num.textContent = c.prefix + c.fmt(c.target); c.num.style.minWidth = ''; }
+    })(start);
+  }
+  if (counters.length) {
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        cio.unobserve(en.target);
+        counters.forEach(function (c) { if (c.el === en.target) setTimeout(function () { count(c); }, 150); });
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (c) { cio.observe(c.el); });
+  }
+
   // if the user switches reduced motion on mid-visit, show everything immediately
   reduced.addEventListener('change', function (e) {
     if (!e.matches) return;
     document.querySelectorAll('.mo-pending, .mo-in').forEach(function (el) { el.classList.remove('mo-pending', 'mo-in'); });
     io.disconnect();
+    counters.forEach(function (c) { c.num.textContent = c.prefix + c.fmt(c.target); c.num.style.minWidth = ''; });
   });
 })();
