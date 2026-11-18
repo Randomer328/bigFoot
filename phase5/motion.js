@@ -106,11 +106,13 @@
   var NUM = /^(\D*?)(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?(.*)$/s;
   var counters = [];
   main.querySelectorAll('strong').forEach(function (el) {
-    if (el.closest('.transport-journey, nav, [hidden], .site-header, .site-footer') || el.className) return;
+    // never count contact details: anything inside a link (tel:, mailto:, maps) is left alone
+    if (el.closest('a, .transport-journey, nav, [hidden], .site-header, .site-footer, address') || el.className) return;
     var node = el.firstChild;
     if (!node || node.nodeType !== 3 || el.textContent.trim().length > 14) return;
     var m = node.nodeValue.match(NUM);
     if (!m || m[1].trim().length > 3) return; // allow a short prefix such as "S$"
+    if (/\d/.test(m[4]) || /^\s*\+/.test(m[1])) return; // phone numbers, codes and "+65 …" style figures are not stats
     var target = parseFloat((m[2] + (m[3] || '')).replace(/,/g, ''));
     if (!(target >= 2)) return; // nothing worth counting
     var decimals = m[3] ? m[3].length - 1 : 0, commas = m[2].indexOf(',') > -1;
