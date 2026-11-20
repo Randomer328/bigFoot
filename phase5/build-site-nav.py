@@ -18,10 +18,10 @@ COUNTRIES = [
         ('Bigfoot Logistic', 'index.html'),
         ('Bigfoot Shipping', 'bigfoot-shipping.html'),
         ('Bigfoot Meats', '../Meats/index.html'),
-        ('Bigfoot Medicare', 'bigfoot-medicare.html'),
+        ('Bigfoot Medicare', '../medicare/'),
         ('Bigfoot Engineering', 'bigfoot-engineering.html'),
         ('Bigfoot Trading', 'bigfoot-trading.html'),
-        ('LNCST', 'lncst.html'),
+        ('LNCST', 'https://www.lncst.edu.sg/'),
         ('Bigfoot Worldwide', 'bigfoot-worldwide.html'),
         ('Bigfoot International', 'bigfoot-international.html')]),
     dict(code='IN', name='India', site='../india/index.html', img='assets/menu/in-facility.webp', cos=[
@@ -46,7 +46,8 @@ def build(page):
 
     def a(href, inner, cls=''):
         c = f' class="{cls}"' if cls else ''
-        return f'<a{c} href="{href}"{cur(href)}>{inner}</a>'
+        ext = ' target="_blank" rel="noopener"' if href.startswith('http') else ''  # outside sites open in a new tab
+        return f'<a{c} href="{href}"{ext}{cur(href)}>{inner}</a>'
 
     def dd(key, label, desktop, mobile, links):
         current = ' is-current' if page != 'index.html' and page in links else ''
