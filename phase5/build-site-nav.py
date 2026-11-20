@@ -18,7 +18,7 @@ COUNTRIES = [
         ('Bigfoot Logistic', 'index.html'),
         ('Bigfoot Shipping', 'bigfoot-shipping.html'),
         ('Bigfoot Meats', '../Meats/index.html'),
-        ('Bigfoot Medicare', '../medicare/'),
+        ('Bigfoot Medicare', '../medicare/index.html'),
         ('Bigfoot Engineering', 'bigfoot-engineering.html'),
         ('Bigfoot Trading', 'bigfoot-trading.html'),
         ('LNCST', 'https://www.lncst.edu.sg/'),
