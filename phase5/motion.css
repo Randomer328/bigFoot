@@ -1,3 +1,7 @@
+/* Hallmark · checked: 2026-11-23 · genre: modern-minimal (inferred: B2B logistics group)
+ * floor: 0 FAIL · fixed: 1, 2, 4, 5, 6, 7, 9, 10, 15, 29, 39a, 40, 41, 63, 67 · reflex open: 38iii (brand red in each hero) · structural: printed (58, F15, 3)
+ * built: the project · redesign: polish · v2.0.0 */
+@import url("tokens.css");
 /* Site-wide motion layer: subtle fades and rises, per the brand guide.
    Loaded on every phase5 page (injected by build-site-nav.py). Everything here
    is switched off for people who ask for reduced motion. */

@@ -55,32 +55,32 @@ def build(page):
                 f'<div class="bf-panel" id="bf-{key}"><div class="bf-d">{desktop}</div><div class="bf-m">{mobile}</div></div></div>')
 
     # ---- Our Group (country cards) ----
-    cards, mob, links = '', a('index.html#group', f'Explore our group {ARROW}'), []
+    cards, mob, links = '', a('index.html#group', 'Explore our group'), []
     for c in COUNTRIES:
-        head = f'<span class="bf-code">{c["code"]}</span><b>{c["name"]}</b><em>{"Visit site " + chr(8594) if c["site"] else "Coming soon"}</em>'
+        head = f'<span class="bf-code">{c["code"]}</span><b>{c["name"]}</b><em>{"Visit site" if c["site"] else "Coming soon"}</em>'
         img = f'<img src="{c["img"]}" alt="" loading="lazy">' if c['img'] else ''
         head = f'<a class="bf-card-h" href="{c["site"]}">{img}{head}</a>' if c['site'] else f'<div class="bf-card-h none">{head}</div>'
         lis = ''.join((f'<li>{a(h, e(n))}</li>' if h else f'<li><span>{e(n)}</span></li>') for n, h in c['cos'])
         cols = ' class="cols"' if len(c['cos']) > 4 else ''
         cards += f'<div class="bf-card">{head}<ul{cols}>{lis}</ul></div>'
         if c['site']:
-            mob += f'<a class="country" href="{c["site"]}"><span class="bf-code">{c["code"]}</span>{c["name"]}<em>Visit site →</em></a>'
+            mob += f'<a class="country" href="{c["site"]}"><span class="bf-code">{c["code"]}</span>{c["name"]}<em>Visit site</em></a>'
         else:
             mob += f'<div class="row country"><span class="bf-code">{c["code"]}</span>{c["name"]}<span class="bf-soon">Site soon</span></div>'
         mob += ''.join((a(h, e(n), 'sub') if h else f'<div class="row sub">{e(n)}</div>') for n, h in c['cos'])
         links += [h for _, h in c['cos'] if h]
     group = dd('group', 'Our Group',
                f'<div class="bf-in"><div class="bf-intro"><span class="k">Our group</span><h3>One Vision. Many Ventures. Lasting Impact.</h3>'
-               f'<p>Four countries, one group. Choose a country to visit its website.</p><a href="index.html#group">Explore our group {ARROW}</a></div>'
+               f'<p>Four countries, one group. Choose a country to visit its website.</p><a href="index.html#group">Explore our group</a></div>'
                f'<div class="bf-cards">{cards}</div></div>', mob, links)
 
     # ---- ESG ----
-    cols = ''.join(f'<div><span class="n">0{i + 1}</span>{a(h, n, "h")}<p>{d}</p>{a(ch, ch_n + " " + ARROW, "c")}</div>'
+    cols = ''.join(f'<div><span class="n">0{i + 1}</span>{a(h, n, "h")}<p>{d}</p>{a(ch, ch_n, "c")}</div>'
                    for i, (n, h, ch_n, ch, d) in enumerate(ESG))
     mob = ''.join(f'<div class="head">{n}</div>{a(h, n + " overview")}{a(ch, ch_n, "sub")}' for n, h, ch_n, ch, _ in ESG)
     esg = dd('esg', 'ESG',
              f'<div class="bf-in"><div class="bf-intro"><span class="k">ESG</span><h3>Moving Forward Responsibly.</h3>'
-             f'<p>How we look after the environment, our people and the way we run the business.</p><a href="esg.html">ESG overview {ARROW}</a></div>'
+             f'<p>How we look after the environment, our people and the way we run the business.</p><a href="esg.html">ESG overview</a></div>'
              f'<div class="bf-esg">{cols}<div><img src="assets/menu/esg-solar.webp" alt="Solar panels on the Bigfoot headquarters roof" loading="lazy"></div></div></div>',
              mob, [x for r in ESG for x in (r[1], r[3])] + ['esg.html'])
 
