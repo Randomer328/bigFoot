@@ -1,0 +1,58 @@
+/* Stronger Medicare colour coverage: royal blue, crimson and neutral breathing space. */
+.medicare .care-shortcuts{background:#f1f3f7;border-bottom:0}
+.medicare .ribbon a:nth-child(1){background:#123b83;border-color:#123b83!important}
+.medicare .ribbon a:nth-child(2){background:#0b2452;border-color:#0b2452!important}
+.medicare .ribbon a:nth-child(3){background:#b51236;border-color:#b51236!important}
+.medicare .ribbon a strong,.medicare .ribbon a b,.medicare .ribbon a:nth-child(3) b{color:#fff}
+.medicare .ribbon a small{color:#fff;opacity:.9}
+.medicare .ribbon a .service-symbol,.medicare .ribbon a:nth-child(2) .service-symbol,.medicare .ribbon a:nth-child(3) .service-symbol{color:#fff;background:#ffffff12;border-color:#ffffff4d}
+.medicare .ribbon a:hover{filter:brightness(1.1);box-shadow:0 10px 25px #0b245226;transform:translateY(-3px)}
+.medicare #about .about-photo:before{content:'';position:absolute;left:-12px;top:22px;width:7px;height:92px;background:#b51236;border-radius:3px}
+.medicare #services{background:repeating-linear-gradient(135deg,transparent 0 65px,#ffffff03 65px 67px),linear-gradient(120deg,#123b83,#0b2452);color:#fff}
+.medicare #services h2{color:#fff}
+.medicare #services .section-head>p{color:#e4ebf7}
+.medicare #services .eyebrow{color:#fff}
+.medicare #services .eyebrow:before{background:#ee5273}
+.medicare #services .tab{background:#ffffff0b;border-color:#ffffff60;color:#fff}
+.medicare #services .tab[aria-selected=true]{background:#b51236;border-color:#b51236}
+.medicare #services .panel{box-shadow:0 16px 36px #041a3b30;border-color:#fff}
+.medicare #services .extra-services article,.medicare #services .extra-services article:nth-child(2),.medicare #services .extra-services article:nth-child(3){background:#ffffff0d;border-color:#ffffff36;border-top:3px solid #fff}
+.medicare #services .extra-services article:nth-child(3){border-top-color:#ee5273}
+.medicare #services .extra-services h3{color:#fff}
+.medicare #services .extra-services p{color:#e4ebf7}
+.medicare #care{background:#f1f3f7}
+.medicare #care .value:nth-child(1){background:#123b83;border-color:#123b83;border-top-color:#123b83!important}
+.medicare #care .value:nth-child(4){background:#b51236;border-color:#b51236;border-top-color:#b51236!important}
+.medicare #care .value:nth-child(1) h3,.medicare #care .value:nth-child(4) h3{color:#fff}
+.medicare #care .value:nth-child(1) p,.medicare #care .value:nth-child(4) p{color:#fff;opacity:.92}
+.medicare #care .value:nth-child(1) .num,.medicare #care .value:nth-child(4) .num{background:#ffffff16;border:1px solid #ffffff5c;color:#fff}
+.medicare .group-context{background:#0b2452;color:#fff}
+.medicare .group-context .section-head h2{color:#fff}
+.medicare .group-context .section-head>p{color:#e4ebf7}
+.medicare .group-context .eyebrow{color:#fff}
+.medicare .group-context .eyebrow:before{background:#ee5273}
+.medicare .community-photo{border:1px solid #ffffff24;box-shadow:0 12px 32px #04152730}
+.medicare .group-context-cards article,.medicare .group-context-cards article:nth-child(2),.medicare .group-context-cards article:nth-child(3){background:#ffffff0b;border-color:#ffffff36}
+.medicare .group-context-cards article>span,.medicare .group-context-cards article:nth-child(3)>span{color:#ff9eb2}
+.medicare .group-context-cards h3{color:#fff}
+.medicare .group-context-cards p,.medicare .group-scope{color:#d6e0f2}
+.medicare .process{background:#f1f3f7;color:#122746}
+.medicare .process h2{color:#0b2452}
+.medicare .process .eyebrow{color:#b51236}
+.medicare .process-intro p{color:#536071}
+.medicare .step{border:1px solid #dce1e8;border-top:4px solid #b51236;box-shadow:0 6px 18px #12274605}
+.medicare .step small,.medicare .step:nth-child(2) small{background:#123b83;color:#fff}
+.medicare .care-growth{background:#123b83}
+.medicare .future-card{background:#b51236;border-color:#b51236;border-top-color:#fff;color:#fff;box-shadow:0 16px 40px #061d4b30}
+.medicare .future-tag{background:#ffffff12;border-color:#ffffff60;color:#fff}
+.medicare .future-icon,.medicare .future-card h3{color:#fff}
+.medicare .future-card p,.medicare .future-footnote{color:#fff}
+.medicare .future-footnote{border-color:#ffffff50}
+.medicare .story-gallery figure:first-child{border-top:4px solid #123b83}
+.medicare .story-gallery figure:nth-child(2){border-top:4px solid #123b83}
+.medicare .story-gallery figure:nth-child(3){border-top:4px solid #b51236}
+.medicare .contact-section{background:#123b83}
+.medicare .contact-grid{border-top:5px solid #b51236;box-shadow:0 16px 40px #04182f25}
+.medicare .faqs details[open]{border-left:4px solid #b51236}
+.medicare .footer-links a:hover{color:#b51236}
+@media(max-width:760px){.medicare #about .about-photo:before{left:-8px;top:20px;width:5px;height:70px}}

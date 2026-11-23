@@ -31,6 +31,10 @@ medicare=root/'medicare'
 if medicare.is_dir():
     shutil.copytree(medicare,public/'medicare',dirs_exist_ok=True)
 
+mockup=root/'mockup'
+if mockup.is_dir():
+    shutil.copytree(mockup,public/'mockup',dirs_exist_ok=True)
+
 india=root/'india'
 if india.is_dir():
     shutil.copytree(india,public/'india',dirs_exist_ok=True)
