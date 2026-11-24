@@ -1,0 +1,21 @@
+/* Progressive scroll entrances: content stays visible without JavaScript. */
+.medicare.motion-ready .motion-reveal{
+  opacity:0;
+  translate:0 24px;
+  transition:opacity 640ms cubic-bezier(.22,1,.36,1),translate 640ms cubic-bezier(.22,1,.36,1),transform 180ms ease,background-color 180ms ease,border-color 180ms ease;
+  transition-delay:var(--reveal-delay,0ms),var(--reveal-delay,0ms),0ms,0ms,0ms;
+}
+.medicare.motion-ready .motion-reveal.motion-from-right{translate:24px 0}
+.medicare.motion-ready .motion-reveal.motion-from-left{translate:-24px 0}
+.medicare.motion-ready .motion-reveal.is-visible{opacity:1;translate:0 0}
+.medicare.motion-ready .motion-reveal:focus-within{opacity:1;translate:0 0;transition-delay:0ms}
+@media(max-width:760px){
+  .medicare.motion-ready .motion-reveal,.medicare.motion-ready .motion-reveal.motion-from-right,.medicare.motion-ready .motion-reveal.motion-from-left{translate:0 18px}
+  .medicare.motion-ready .motion-reveal.is-visible,.medicare.motion-ready .motion-reveal:focus-within{translate:0 0}
+}
+@media(prefers-reduced-motion:reduce){
+  .medicare.motion-ready .motion-reveal,.medicare.motion-ready .motion-reveal.motion-from-right,.medicare.motion-ready .motion-reveal.motion-from-left{opacity:1;translate:none;transition:none}
+}
+@media print{
+  .medicare.motion-ready .motion-reveal{opacity:1;translate:none;transition:none}
+}

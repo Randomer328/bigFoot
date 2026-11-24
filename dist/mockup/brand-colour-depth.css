@@ -56,3 +56,10 @@
 .medicare .faqs details[open]{border-left:4px solid #b51236}
 .medicare .footer-links a:hover{color:#b51236}
 @media(max-width:760px){.medicare #about .about-photo:before{left:-8px;top:20px;width:5px;height:70px}}
+
+/* Reassurance cards: blue/red on the first row, red/blue on the second. */
+.medicare #care .value:nth-child(1),.medicare #care .value:nth-child(4){background:#123b83;border-color:#123b83;border-top-color:#123b83!important}
+.medicare #care .value:nth-child(2),.medicare #care .value:nth-child(3){background:#b51236;border-color:#b51236;border-top-color:#b51236!important}
+.medicare #care .value h3{color:#fff}
+.medicare #care .value p{color:#fff;opacity:.92}
+.medicare #care .value .num{background:#ffffff16;border:1px solid #ffffff5c;color:#fff}
